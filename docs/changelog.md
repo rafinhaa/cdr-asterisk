@@ -1,3 +1,5 @@
+##### v0.0.6
+- Finished View layouts/login
 ##### v0.0.5
 - Inicialized login template
 ##### v0.0.4

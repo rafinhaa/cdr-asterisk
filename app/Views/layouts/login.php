@@ -47,34 +47,31 @@
 							</div>
 						</div>
 						<div class="card-body p-5">
-							<h4 class="text-dark mb-5">Sign In</h4>
-							<?= view('Myth\Auth\Views\_message_block') ?>
+							<h4 class="text-dark mb-5"><?=lang('Auth.signIn')?></h4>
+							<?= view('App\Views\layouts\_message_login') ?>
 							<form action="<?= base_url('login') ?>" method="post">
                 				<?= csrf_field() ?>
 								<div class="row">
 									<div class="col-md-12 mb-4">
-										<input type="email" name="login" class="form-control input-lg <?= !session('errors.login') ?: 'is-invalid' ?>" id="email" aria-describedby="inputGroupPrepend3" placeholder="Username" value="<?= old('login') ?>">                    
+										<input type="email" name="login" class="form-control input-lg <?= !session('errors.login') ?: 'is-invalid' ?>" id="email" aria-describedby="inputGroupPrepend3" placeholder="<?=lang('Auth.username')?>" value="<?= old('login') ?>">                    
                     					<div class="invalid-feedback"><?= session('errors.login') ?></div>
 									</div>
 									<div class="col-md-12 ">
-										<input type="password" name="password" class="form-control input-lg <?= !session('errors.password') ?: 'is-invalid' ?>" id="password" placeholder="Password">
+										<input type="password" name="password" class="form-control input-lg <?= !session('errors.password') ?: 'is-invalid' ?>" id="password" placeholder="<?=lang('Auth.password')?>">
                     					<div class="invalid-feedback"><?= session('errors.password') ?></div>
 									</div>
 									<div class="col-md-12">
 										<div class="d-flex my-2 justify-content-between">
 											<div class="d-inline-block mr-3">
 												<label class="control control-checkbox">
-													Remember me
+												<?=lang('Auth.rememberMe')?>
 													<input type="checkbox" name="remember" <?= !old('remember') ?: 'checked' ?> />
 													<div class="control-indicator"></div>
 												</label>
 											</div>
-											<p><a class="text-blue" href="#">Forgot Your Password?</a></p>
+											<p><a class="text-blue" href="#"><?=lang('Auth.forgotYourPassword')?></a></p>
 										</div>
-										<button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
-										<p>Don't have an account yet ?
-											<a class="text-blue" href="sign-up.html">Sign Up</a>
-										</p>
+										<button type="submit" class="btn btn-lg btn-primary btn-block mb-4"><?=lang('Auth.signIn')?></button>
 									</div>
 								</div>
 							</form>
@@ -89,4 +86,6 @@
 			</div>
 		</div>
 	</body>
+	<script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
+	<script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 </html>
