@@ -6,14 +6,7 @@
     <!-- search form -->
     <div class="search-form d-none d-lg-inline-block">
         <div class="input-group">
-            <button type="button" name="search" id="search-btn" class="btn btn-flat">
-            <i class="mdi mdi-magnify"></i>
-            </button>
-            <input type="text" name="query" id="search-input" class="form-control" placeholder="'button', 'chart' etc."
-                autofocus autocomplete="off" />
-        </div>
-        <div id="search-results-container">
-            <ul id="search-results"></ul>
+            
         </div>
     </div>
     <div class="navbar-right ">
@@ -59,9 +52,6 @@
                     </li>
                 </ul>
             </li>
-            <li class="right-sidebar-in right-sidebar-2-menu">
-                <i class="mdi mdi-settings mdi-spin"></i>
-            </li>
             <!-- User Account -->
             <li class="dropdown user-menu">
                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -93,7 +83,7 @@
                         <a href="javascript:0"> <i class="mdi mdi-settings"></i> Setting </a>
                     </li>
                     <li class="dropdown-footer">
-                        <a href="index.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a href="<?= base_url('/logout') ?>"> <i class="mdi mdi-logout"></i> Log Out </a>
                     </li>
                 </ul>
             </li>

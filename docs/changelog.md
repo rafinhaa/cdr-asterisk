@@ -1,3 +1,8 @@
+##### v0.0.9
+- Added translation for idioma pt-BR
+- Change time zone to America\Sao_Paulo
+- Removed index.php from variable $indexPage
+- Inicialized template layout 
 ##### v0.0.8
 - Edited config auth in App\Config\Auth
 - Disabled auto routes in App\Config\Routes

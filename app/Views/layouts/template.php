@@ -10,15 +10,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
 		<link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 		<!-- PLUGINS CSS STYLE -->
-		<link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+		<?= link_tag('assets/plugins/nprogress/nprogress.css') ?>
 		<!-- No Extra plugin used -->
-		<link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-		<link href="assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
-		<link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+		<?= link_tag('assets/plugins/toastr/toastr.min.css') ?>
 		<!-- SLEEK CSS -->
-		<link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
+		<?= link_tag(['id' => 'sleek-css', 'rel' => 'stylesheet', 'href' => 'assets/css/sleek.css']) ?>
 		<!-- FAVICON -->
-		<link href="assets/img/favicon.png" rel="shortcut icon" />
+		<?= link_tag('assets/img/favicon.png', 'shortcut icon', 'image/ico') ?>
 		<!--
 			HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
 			-->
@@ -36,24 +34,7 @@
 		</script>
 		<div id="toaster"></div>
 		<div class="wrapper">
-			<!-- Github Link -->
-			<a href="https://github.com/tafcoder/sleek-dashboard"  target="_blank" class="github-link">
-				<svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
-					<defs>
-						<linearGradient id="grad1" x1="0%" y1="75%" x2="100%" y2="0%">
-							<stop offset="0%" style="stop-color:#896def;stop-opacity:1" />
-							<stop offset="100%" style="stop-color:#482271;stop-opacity:1" />
-						</linearGradient>
-					</defs>
-					<path d="M 0,0 L115,115 L115,115 L142,142 L250,250 L250,0 Z" fill="url(#grad1)"></path>
-				</svg>
-				<i class="mdi mdi-github-circle"></i>
-			</a>
-			<!--
-				====================================
-				——— LEFT SIDEBAR WITH FOOTER
-				=====================================
-				-->
+			<!-- LEFT SIDEBAR -->
 			<aside class="left-sidebar bg-sidebar">
                 <?= $this->include('layouts/sidebar') ?>
 			</aside>
@@ -87,32 +68,10 @@
 				</footer>
 			</div>
 		</div>
-		<script src="assets/plugins/jquery/jquery.min.js"></script>
-		<script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
-		<script src="assets/plugins/jekyll-search.min.js"></script>
-		<script src="assets/plugins/charts/Chart.min.js"></script>
-		<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-		<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
-		<script src="assets/plugins/daterangepicker/moment.min.js"></script>
-		<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
-		<script>
-			jQuery(document).ready(function() {
-			  jQuery('input[name="dateRange"]').daterangepicker({
-			  autoUpdateInput: false,
-			  singleDatePicker: true,
-			  locale: {
-			    cancelLabel: 'Clear'
-			  }
-			});
-			  jQuery('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
-			    jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
-			  });
-			  jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
-			    jQuery(this).val('');
-			  });
-			});
-		</script>
-		<script src="assets/plugins/toastr/toastr.min.js"></script>
-		<script src="assets/js/sleek.bundle.js"></script>
+
+		<script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>		
+		<script src="<?= base_url('assets/plugins/slimscrollbar/jquery.slimscroll.min.js') ?>"></script>	
+		<script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
+		<script src="<?= base_url('assets/js/sleek.bundle.js') ?>"></script>
 	</body>
 </html>
