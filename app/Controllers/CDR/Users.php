@@ -7,6 +7,16 @@ class Users extends BaseController
 {
 	public function add()
 	{	
-        return view('users/add');
+		$data = [
+			'menuActive' => [
+				'col' => 'users',
+				'active' => 'add',
+			],
+		];
+        return view('users/add',$data);
+	}
+	public function store()
+	{	
+		die;
 	}
 }

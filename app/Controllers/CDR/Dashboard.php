@@ -7,6 +7,11 @@ class Dashboard extends BaseController
 {
 	public function index()
 	{	
-        return view('layouts/template');
+		$data = [
+			'menuActive' => [
+				'active' => 'dash',
+			],
+		];
+        return view('layouts/template',$data);
 	}
 }
