@@ -33,10 +33,31 @@
                 </a>                
             </li>
             <li  class="has-sub" >
+                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">Usuários</span> <b class="caret"></b>
+                </a>                
+                <ul  class="collapse"  id="users"
+                    data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                        <li >
+                            <a class="sidenav-item-link" href="example-1.html">
+                            <span class="nav-text">Todos usuários</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a class="sidenav-item-link" href="<?= base_url('/users/add') ?>">
+                            <span class="nav-text">Adicionar</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </li>
+            <li  class="has-sub" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#example" aria-expanded="false" aria-controls="example">
                     <i class="mdi mdi-pencil-box-multiple"></i>
                     <span class="nav-text">Example</span> <b class="caret"></b>
-                </a>
+                </a>                
                 <ul  class="collapse"  id="example"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">

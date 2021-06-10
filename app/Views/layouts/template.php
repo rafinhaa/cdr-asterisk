@@ -32,7 +32,6 @@
 			NProgress.configure({ showSpinner: false });
 			NProgress.start();
 		</script>
-		<div id="toaster"></div>
 		<div class="wrapper">
 			<!-- LEFT SIDEBAR -->
 			<aside class="left-sidebar bg-sidebar">
@@ -45,7 +44,7 @@
 				</header>
 				<div class="content-wrapper">
 					<div class="content">
-
+						<?= $this->renderSection('content') ?>
 					</div>
 				</div>
 				<footer class="footer mt-auto">
@@ -65,6 +64,7 @@
 						var year = d.getFullYear();
 						document.getElementById("copy-year").innerHTML = year;
 					</script>
+					
 				</footer>
 			</div>
 		</div>
@@ -73,5 +73,6 @@
 		<script src="<?= base_url('assets/plugins/slimscrollbar/jquery.slimscroll.min.js') ?>"></script>	
 		<script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
 		<script src="<?= base_url('assets/js/sleek.bundle.js') ?>"></script>
+		<?= $this->include('layouts/_alerts') ?>
 	</body>
 </html>

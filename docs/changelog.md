@@ -1,5 +1,10 @@
+##### v0.0.10
+- Created View template\_alerts
+- Created View users\add
+- Created Route for users\add
+- Created Controller CDR\Users
 ##### v0.0.9
-- Added translation for idioma pt-BR
+- Added translation for language pt-BR
 - Change time zone to America\Sao_Paulo
 - Removed index.php from variable $indexPage
 - Inicialized template layout 

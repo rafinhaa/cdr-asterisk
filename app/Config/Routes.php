@@ -34,7 +34,10 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 
 $routes->group('/', ['filter' => 'login'], function($routes){
-	$routes->get('', 'CDR/Dashboard::index');
+	$routes->get('', 'CDR\Dashboard::index');
+	$routes->group('users', function($routes){
+		$routes->get('add', 'CDR\Users::add');
+	});
 }); 
 
 /*
