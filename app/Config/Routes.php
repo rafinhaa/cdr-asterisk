@@ -37,6 +37,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 	$routes->get('', 'CDR\Dashboard::index');
 	$routes->group('users', function($routes){
 		$routes->get('add', 'CDR\Users::add');
+		$routes->post('add', 'CDR\Users::store');
 	});
 }); 
 

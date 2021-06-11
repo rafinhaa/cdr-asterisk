@@ -1,3 +1,6 @@
+##### v0.0.12
+- Finished View users\add
+- Create migration AlterTableUsers with filds name and lastname
 ##### v0.0.11
 - Created Helper Submenu_helper
 ##### v0.0.10
