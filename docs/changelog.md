@@ -1,3 +1,5 @@
+##### v0.0.13
+- Config myth to use news filds
 ##### v0.0.12
 - Finished View users\add
 - Create migration AlterTableUsers with filds name and lastname
