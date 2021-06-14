@@ -40,12 +40,12 @@
                 <ul  class="collapse <?= menu($menuActive,'users','show') ?>"  id="users"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">
-                        <li >
-                            <a class="sidenav-item-link" href="example-1.html">
+                        <li class="<?= menu($menuActive,'list','active') ?>" >
+                            <a class="sidenav-item-link" href="<?= base_url('/users/list') ?>">
                             <span class="nav-text">Todos usuários</span>
                             </a>
                         </li>
-                        <li class="<?= menu($menuActive,'users','active') ?>" >
+                        <li class="<?= menu($menuActive,'add','active') ?>" >
                             <a class="sidenav-item-link active" href="<?= base_url('/users/add') ?>">
                             <span class="nav-text">Adicionar</span>
                             </a>

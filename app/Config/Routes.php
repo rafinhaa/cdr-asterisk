@@ -45,6 +45,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 	$routes->group('users', function($routes){
 		$routes->get('add', 'CDR\Users::add');
 		$routes->post('add', 'CDR\Users::store');
+		$routes->get('list', 'CDR\Users::list');
 	});
 }); 
 

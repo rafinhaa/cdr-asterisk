@@ -1,3 +1,7 @@
+##### v0.0.15
+- Created Routes for Controller Users\list
+- Created link in siderbar to View users\list
+- Added files to datatables
 ##### v0.0.14
 - Edited Routes to disallow registrations, activation and retrieval
 ##### v0.0.13

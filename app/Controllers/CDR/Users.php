@@ -121,4 +121,21 @@ class Users extends BaseController
 		// Success!
 		return redirect()->to('/list')->with('message', lang('Auth.registerSuccess'));
 	}
+	public function list(){
+		$data = [
+			'menuActive' => [
+				'col' => 'users',
+				'active' => 'list',
+			],
+			'scripts' => [
+				'DataTables' => 'assets/plugins/data-tables/jquery.datatables.min.js',
+				'Bootstrap4-DT' => 'assets/plugins/data-tables/datatables.bootstrap4.min.js',
+				'DataTables Default' => 'assets/plugins/data-tables/default-datatable.js',				
+			],
+			'css' => [
+				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
+			],
+		];
+        return view('users/list',$data);
+	}
 }
