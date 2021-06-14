@@ -1,3 +1,5 @@
+##### v0.0.14
+- Edited Routes to disallow registrations, activation and retrieval
 ##### v0.0.13
 - Config myth to use news filds
 ##### v0.0.12

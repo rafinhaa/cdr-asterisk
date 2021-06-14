@@ -34,6 +34,13 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 
 $routes->group('/', ['filter' => 'login'], function($routes){
+	/** Redirect attempts to Registration, Activation and Forgot/Resets */
+	$routes->match(['get', 'post'], 'register', 'CDR\Dashboard::index');
+	$routes->get('activate-account', 'CDR\Dashboard::index');
+	$routes->get('resend-activate-accoun', 'CDR\Dashboard::index');
+	$routes->match(['get', 'post'], 'forgot', 'CDR\Dashboard::index');
+	$routes->match(['get', 'post'], 'reset-password', 'CDR\Dashboard::index');
+	/** Redirect end */
 	$routes->get('', 'CDR\Dashboard::index');
 	$routes->group('users', function($routes){
 		$routes->get('add', 'CDR\Users::add');
