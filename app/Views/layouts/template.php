@@ -17,6 +17,12 @@
 		<?= link_tag(['id' => 'sleek-css', 'rel' => 'stylesheet', 'href' => 'assets/css/sleek.css']) ?>
 		<!-- FAVICON -->
 		<?= link_tag('assets/img/favicon.png', 'shortcut icon', 'image/ico') ?>
+		<?php if (! empty($css) && is_array($css)) : ?>
+			<?php foreach ($css as $name => $css_item): ?>
+				<!-- <?= $name ?> -->
+				<link rel="stylesheet" href="<?= base_url($css_item) ?>">
+			<?php endforeach; ?>
+		<?php endif ?>
 		<!--
 			HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
 			-->
@@ -73,6 +79,12 @@
 		<script src="<?= base_url('assets/plugins/slimscrollbar/jquery.slimscroll.min.js') ?>"></script>	
 		<script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
 		<script src="<?= base_url('assets/js/sleek.bundle.js') ?>"></script>
+		<?php if (! empty($scripts) && is_array($scripts)) : ?>
+			<?php foreach ($scripts as $name => $script): ?>
+				<!-- <?= $name ?> -->
+				<script src="<?= base_url($script) ?>"></script>
+			<?php endforeach; ?>
+		<?php endif ?>
 		<?= $this->include('layouts/_alerts') ?>
 	</body>
 </html>

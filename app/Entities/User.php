@@ -18,7 +18,7 @@ class User extends MythUser
 	 *
 	 * @return string
 	 */
-	public function getName()
+	public function getFullName()
 	{
 		return trim(trim($this->attributes['name']) . ' ' . trim($this->attributes['lastname']));
 	}

@@ -1,3 +1,5 @@
+##### v0.0.16
+- Created table to list all users in View users\list
 ##### v0.0.15
 - Created Routes for Controller Users\list
 - Created link in siderbar to View users\list
