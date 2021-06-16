@@ -5,6 +5,9 @@
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
 				<h2>Usuários cadastrados</h2>
+				<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
+					Adicionar usuário
+				</a>
 			</div>
 			<div class="card-body">
 				<div class="basic-data-table">
@@ -16,6 +19,7 @@
 								<th>Nome</th>
 								<th>Sobrenome</th>
 								<th>E-mail</th>
+								<th>Status</th>
 								<th>Opções</th>
 							</tr>
 						</thead>
@@ -27,6 +31,13 @@
 								<td><?= $user->name ?></td>
 								<td><?= $user->lastname ?></td>
 								<td><?= $user->email ?></td>
+								<td>
+									<?php if($user->isBanned() != 1) : ?>
+										<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>">ativo</button>
+									<?php else: ?>
+										<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>">inativo</button>
+									<?php endif; ?>
+								</td>
 								<td></td>
 							</tr>
 							<?php endforeach; ?>

@@ -1,3 +1,8 @@
+##### v0.0.17
+- Created method doStatus in Controller CDR\Users
+- Created route GET for url users/status
+- Created button do change status in View users\list
+- Create file changeStatus.js in public/assets/js/app
 ##### v0.0.16
 - Created table to list all users in View users\list
 ##### v0.0.15

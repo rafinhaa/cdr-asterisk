@@ -91,7 +91,7 @@ class Users extends BaseController
 		// Save the user
 		$allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
 		$user = new User($this->request->getPost($allowedPostFields));
-
+		$user->activate();
 		$this->config->requireActivation === null ? $user->activate : $user->generateActivateHash();
 
 		$users = model(UserModel::class);
@@ -116,15 +116,13 @@ class Users extends BaseController
 			}
 
 			// Success!
-			return redirect()->to('/list')->with('message', lang('Auth.activationSuccess'));
+			return redirect()->to('/users/list')->with('message', lang('Auth.activationSuccess'));
 		}
 		// Success!
-		return redirect()->to('/list')->with('message', lang('Auth.registerSuccess'));
+		return redirect()->to('/users/list')->with('message', lang('Auth.registerSuccess'));
 	}
 	public function list(){
 		$usersModel = model(UserModel::class);
-		$users = $usersModel->findAll();
-		die;
 		$data = [
 			'users' => $usersModel->findAll(),
 			'menuActive' => [
@@ -135,11 +133,37 @@ class Users extends BaseController
 				'DataTables' => 'assets/plugins/data-tables/jquery.datatables.min.js',
 				'Bootstrap4-DT' => 'assets/plugins/data-tables/datatables.bootstrap4.min.js',
 				'DataTables Default' => 'assets/plugins/data-tables/default.datatable.js',				
+				'Change Status' => 'assets/js/app/users/changeStatus.js',				
 			],
 			'css' => [
 				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
 			],
 		];
         return view('users/list',$data);
+	}
+
+	public function doStatus(){
+		if ($this->request->isAJAX()) {
+			$id = service('request')->getVar('id');
+			//return json_encode(['success'=> 'success', 'csrf' => csrf_hash(), 'query ' => $id ]);
+			if(is_null($id) || empty($id)){
+				return json_encode(['error'=> 'ID dont passed.']);
+			}
+			$usersModel = model(UserModel::class);
+			if(!$user = $usersModel->find($id)){
+				return json_encode(['error'=> "this user $id doesn't exist"]);
+			}		
+			if ($user->isBanned() != 1){
+				$user->ban('disable');				
+			}else{
+				$user->unBan();
+			}
+			if ($usersModel->save($user)){
+				return json_encode(['success'=> 'Status alterado com sucesso']);
+			}else{
+				return json_encode(['error'=> 'Não foi possível alterar o status']);
+			}
+		}		
+		return json_encode(['error'=> 'Essa ação não é permitida!']);
 	}
 }

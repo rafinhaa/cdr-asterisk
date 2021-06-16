@@ -87,4 +87,8 @@
 		<?php endif ?>
 		<?= $this->include('layouts/_alerts') ?>
 	</body>
+	<script>
+		var baseUrl = "<?= base_url();?>";
+		var siteUrl = "<?= site_url();?>";
+	</script>
 </html>
