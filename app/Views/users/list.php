@@ -39,7 +39,7 @@
 									<?php endif; ?>
 								</td>
 								<td>
-								<button class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></button>
+								<a href="<?= base_url('/users/profile/'.$user->id) ?>" class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></a>
 									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $user->id ?>">
 										<i class="mdi mdi-delete"></i>
 									</button>

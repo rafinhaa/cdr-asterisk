@@ -1,3 +1,6 @@
+##### v0.0.19
+- Created route get for users/profile
+- Created method profile in Controller CDR\Users
 ##### v0.0.18
 - Created method delete in Controller CDR\Users
 - Created route GET for url users/delete

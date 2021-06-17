@@ -191,4 +191,22 @@ class Users extends BaseController
 		}		
 		return json_encode(['error'=> 'Essa ação não é permitida!']);
 	}
+
+	public function profile($id = null){
+		if(is_null($id)){
+			return redirect()->to('users/list')->with('message', 'Usuário não existe');
+		}
+		$usersModel = model(UserModel::class);
+		if(!$user = $usersModel->find($id)){
+			return redirect()->to('/users/list')->with('message', 'Usuário não existe');
+		}
+		$data = [
+			'user' => $user,
+			'menuActive' => [
+				'col' => 'users',
+				'active' => null,
+			],
+		];
+        return view('users/profile',$data);
+	}
 }
