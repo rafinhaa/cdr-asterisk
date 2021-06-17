@@ -133,7 +133,7 @@ class Users extends BaseController
 				'DataTables' => 'assets/plugins/data-tables/jquery.datatables.min.js',
 				'Bootstrap4-DT' => 'assets/plugins/data-tables/datatables.bootstrap4.min.js',
 				'DataTables Default' => 'assets/plugins/data-tables/default.datatable.js',				
-				'Change Status' => 'assets/js/app/users/changeStatus.js',				
+				'Change Status' => 'assets/js/app/users/list.js',				
 			],
 			'css' => [
 				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
@@ -149,12 +149,15 @@ class Users extends BaseController
 			if(is_null($id) || empty($id)){
 				return json_encode(['error'=> 'ID dont passed.']);
 			}
+			if(user_id() == $id){
+				return json_encode(['error'=> "Entre com outra conta para remover"]);
+			}
 			$usersModel = model(UserModel::class);
 			if(!$user = $usersModel->find($id)){
-				return json_encode(['error'=> "this user $id doesn't exist"]);
+				return json_encode(['error'=> "Esse usúario não existe"]);
 			}		
 			if ($user->isBanned() != 1){
-				$user->ban('disable');				
+				$user->ban('user_disabled');				
 			}else{
 				$user->unBan();
 			}
@@ -162,6 +165,28 @@ class Users extends BaseController
 				return json_encode(['success'=> 'Status alterado com sucesso']);
 			}else{
 				return json_encode(['error'=> 'Não foi possível alterar o status']);
+			}
+		}		
+		return json_encode(['error'=> 'Essa ação não é permitida!']);
+	}
+	public function delete(){
+		if ($this->request->isAJAX()) {
+			$id = service('request')->getVar('id');
+			//return json_encode(['success'=> 'success', 'csrf' => csrf_hash(), 'query ' => $id ]);
+			if(is_null($id) || empty($id)){
+				return json_encode(['error'=> 'ID dont passed.']);
+			}
+			if(user_id() == $id){
+				return json_encode(['error'=> "Você não pode se remover"]);
+			}
+			$usersModel = model(UserModel::class);
+			if(!$user = $usersModel->find($id)){
+				return json_encode(['error'=> "Esse usúario não existe"]);
+			}
+			if ($usersModel->delete($id)){
+				return json_encode(['success'=> 'Deletado com sucesso']);
+			}else{
+				return json_encode(['error'=> 'Não foi possível deletar o usúario']);
 			}
 		}		
 		return json_encode(['error'=> 'Essa ação não é permitida!']);

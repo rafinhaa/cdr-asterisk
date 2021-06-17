@@ -47,6 +47,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 		$routes->post('add', 'CDR\Users::store');
 		$routes->get('list', 'CDR\Users::list');
 		$routes->get('status', 'CDR\Users::doStatus');
+		$routes->get('delete', 'CDR\Users::delete');
 	});
 }); 
 

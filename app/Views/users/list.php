@@ -38,12 +38,36 @@
 										<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>">inativo</button>
 									<?php endif; ?>
 								</td>
-								<td></td>
+								<td>
+								<button class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></button>
+									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $user->id ?>">
+										<i class="mdi mdi-delete"></i>
+									</button>
+								</td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalLabel" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel">Atenção</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Modal body text goes here.
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Voltar</button>
+				<button type="button" class="btn btn-primary btn-pill" data-dismiss="modal">Sim</button>
 			</div>
 		</div>
 	</div>

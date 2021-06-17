@@ -1,3 +1,7 @@
+##### v0.0.18
+- Created method delete in Controller CDR\Users
+- Created route GET for url users/delete
+- Created button delete in View users\list
 ##### v0.0.17
 - Created method doStatus in Controller CDR\Users
 - Created route GET for url users/status
