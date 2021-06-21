@@ -91,8 +91,7 @@ class Users extends BaseController
 		// Save the user
 		$allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
 		$user = new User($this->request->getPost($allowedPostFields));
-		$user->activate();
-		$this->config->requireActivation === null ? $user->activate : $user->generateActivateHash();
+		$this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
 
 		$users = model(UserModel::class);
 		// Ensure default group gets assigned if set
@@ -150,7 +149,7 @@ class Users extends BaseController
 				return json_encode(['error'=> 'ID dont passed.']);
 			}
 			if(user_id() == $id){
-				return json_encode(['error'=> "Entre com outra conta para remover"]);
+				return json_encode(['error'=> "Entre com outra conta para desativar"]);
 			}
 			$usersModel = model(UserModel::class);
 			if(!$user = $usersModel->find($id)){
@@ -208,5 +207,59 @@ class Users extends BaseController
 			],
 		];
         return view('users/profile',$data);
+	}
+
+	public function updateProfile(){
+		$id = service('request')->getPost('id');
+		if(is_null($id) || empty($id)){
+			return redirect()->to('users/list')->with('message', 'ID não informado');			
+		}
+		$usersModel = model(UserModel::class);
+		if(!$user = $usersModel->find($id)){
+			return redirect()->to('/users/list')->with('message', 'Usuário não existe');
+		}
+		$rules = [
+			'name' => [
+				'rules' => 'required|min_length[2]',
+				'errors' => [
+					'required' => 'Seu nome é necessário',
+					'min_length' => 'Seu nome deve ter pelo menos 2 caracteres',
+				],
+			],
+			'lastname' => [
+				'rules' => 'required|min_length[2]',
+				'errors' => [
+					'required' => 'Seu sobrenome é necessário',
+					'min_length' => 'Seu sobrenome deve ter pelo menos 2 caracteres',
+				],
+			],
+			'password' => [
+				'rules' => 'permit_empty|strong_password',
+				'errors' => [
+					'strong_password' => 'Essa senha está facil demais',
+				],                
+			],			
+			'cpassword' => [
+				'rules' => 'permit_empty|matches[password]',
+				'errors' => [
+					'matches' => 'As senhas não são iguais',
+				],                
+			],
+		];
+
+		if (! $this->validate($rules))
+		{
+			return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+		}		
+		$user->name = $this->request->getPost('name');
+		$user->lastname = $this->request->getPost('lastname');
+		if(!empty($password) || !is_null($password)){
+			$user->setPassword($this->request->getPost('password'));
+		}
+		if (! $usersModel->save($user))
+		{
+			return redirect()->back()->withInput()->with('errors', $usersModel->errors());
+		}
+		return redirect()->back()->with('message', 'Usuário alterado com sucesso');
 	}
 }

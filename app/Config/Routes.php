@@ -49,7 +49,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 		$routes->get('status', 'CDR\Users::doStatus');
 		$routes->get('delete', 'CDR\Users::delete');
 		$routes->get('profile/(:num)', 'CDR\Users::profile/$1');
-		$routes->post('profile', 'CDR\Users::store_profile');
+		$routes->post('profile/(:num)', 'CDR\Users::updateProfile/$1');
 	});
 }); 
 
