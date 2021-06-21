@@ -30,7 +30,7 @@ class Users extends BaseController
 				'active' => 'add',
 			],
 		];
-        return view('users/add',$data);
+        return view('users/add',array_merge($data, $this->data));
 	}
 	public function store()
 	{	
@@ -138,7 +138,7 @@ class Users extends BaseController
 				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
 			],
 		];
-        return view('users/list',$data);
+        return view('users/list',array_merge($data, $this->data));
 	}
 
 	public function doStatus(){
@@ -206,7 +206,7 @@ class Users extends BaseController
 				'active' => null,
 			],
 		];
-        return view('users/profile',$data);
+        return view('users/profile',array_merge($data, $this->data));
 	}
 
 	public function updateProfile(){

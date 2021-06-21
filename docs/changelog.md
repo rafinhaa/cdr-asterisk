@@ -1,3 +1,7 @@
+##### v0.0.22
+
+- The logged in username now appears on all pages
+
 ##### v0.0.21
 
 - Fix bug in method updateProfile
@@ -22,7 +26,7 @@
 - Created method doStatus in Controller CDR\Users
 - Created route GET for url users/status
 - Created button do change status in View users\list
-- Create file changeStatus.js in public/assets/js/app
+- Created file changeStatus.js in public/assets/js/app
 
 ##### v0.0.16
 

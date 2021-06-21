@@ -56,18 +56,18 @@
             <li class="dropdown user-menu">
                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <img src="<?= base_url('assets/img/user/user.png') ?>" class="user-image" alt="User Image" />
-                <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                <span class="d-none d-lg-inline-block"><?= $loggedUser->getFullName() ?></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <!-- User image -->
                     <li class="dropdown-header">
                         <img src="<?= base_url('assets/img/user/user.png') ?>" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
-                            Abdus Salam <small class="pt-1">iamabdus@gmail.com</small>
+                            <?= $loggedUser->getFullName() ?> <small class="pt-1"><?= $loggedUser->email ?></small>
                         </div>
                     </li>
                     <li>
-                        <a href="user-profile.html">
+                        <a href="<?= base_url('users/profile/'.$loggedUser->id ) ?>">
                         <i class="mdi mdi-account"></i> My Profile
                         </a>
                     </li>

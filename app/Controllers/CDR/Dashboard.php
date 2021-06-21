@@ -11,7 +11,7 @@ class Dashboard extends BaseController
 			'menuActive' => [
 				'active' => 'dash',
 			],
-		];
-        return view('layouts/template',$data);
+		];		
+        return view('layouts/template',array_merge($data, $this->data));
 	}
 }
