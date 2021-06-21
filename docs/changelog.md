@@ -1,3 +1,7 @@
+##### v0.0.23
+
+- Initialing the creation for groups and permissions
+
 ##### v0.0.22
 
 - The logged in username now appears on all pages

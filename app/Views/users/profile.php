@@ -31,7 +31,10 @@
 				<div class="profile-content-right profile-right-spacing py-5">
 					<ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true">Configuração</a>
+							<a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true">Configuração</a>							
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="group-tab" data-toggle="tab" href="#group" role="tab" aria-controls="group" aria-selected="false">Grupo e permissões</a>
 						</li>
 					</ul>
 					<div class="tab-content px-3 px-xl-5" id="myTabContent">
@@ -89,6 +92,13 @@
 									<div class="d-flex justify-content-end mt-5">
 										<button type="submit" class="btn btn-primary mb-2 btn-pill">Atualizar</button>
 									</div>
+								</form>
+							</div>
+						</div>
+						<div class="tab-pane fade active show" id="group" role="tabpanel" aria-labelledby="group-tab">
+							<div class="tab-pane-content mt-5">
+								<form action="<?= base_url('users/profile/'.$user->id)?>" method="post">
+									<?= csrf_field() ?>
 								</form>
 							</div>
 						</div>
