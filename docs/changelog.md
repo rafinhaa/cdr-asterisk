@@ -1,3 +1,7 @@
+##### v0.0.21
+
+- Fix bug in method updateProfile
+
 ##### v0.0.20
 
 - Created method updateProfile in Controller CDR\Users

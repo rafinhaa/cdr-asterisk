@@ -253,8 +253,9 @@ class Users extends BaseController
 		}		
 		$user->name = $this->request->getPost('name');
 		$user->lastname = $this->request->getPost('lastname');
-		if(!empty($password) || !is_null($password)){
-			$user->setPassword($this->request->getPost('password'));
+		$password = $this->request->getPost('password');
+		if(!empty($password)){
+			$user->setPassword($password);
 		}
 		if (! $usersModel->save($user))
 		{
