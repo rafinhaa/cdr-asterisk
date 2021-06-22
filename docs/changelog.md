@@ -1,3 +1,9 @@
+##### v0.0.24
+
+- Created Seeder AuthGroupsSeed
+- Created Seeder AuthGroupUsersSeed
+- Update README.md
+
 ##### v0.0.23
 
 - Initialing the creation for groups and permissions
