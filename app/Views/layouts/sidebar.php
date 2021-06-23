@@ -53,6 +53,22 @@
                     </div>
                 </ul>
             </li>
+            <li  class="has-sub <?= menu($menuActive,'config','active') ?>" >
+                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#config" aria-expanded="false" aria-controls="users">
+                    <i class="mdi mdi-settings"></i>
+                    <span class="nav-text">Configurações</span> <b class="caret"></b>
+                </a>                                
+                <ul  class="collapse <?= menu($menuActive,'config','show') ?>"  id="config"
+                    data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                        <li class="<?= menu($menuActive,'groups','active') ?>" >
+                            <a class="sidenav-item-link" href="<?= base_url('/config/groups') ?>">
+                            <span class="nav-text">Grupos</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </li>
             <li  class="has-sub" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#example" aria-expanded="false" aria-controls="example">
                     <i class="mdi mdi-pencil-box-multiple"></i>

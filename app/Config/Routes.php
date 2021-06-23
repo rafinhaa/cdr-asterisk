@@ -42,14 +42,22 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 	$routes->match(['get', 'post'], 'reset-password', 'CDR\Dashboard::index');
 	/** Redirect end */
 	$routes->get('', 'CDR\Dashboard::index');
-	$routes->group('users', function($routes){
+	$routes->group('users',function($routes){
 		$routes->get('add', 'CDR\Users::add');
 		$routes->post('add', 'CDR\Users::store');
-		$routes->get('list', 'CDR\Users::list');
+		$routes->get('list', 'CDR\Users::list',);
 		$routes->get('status', 'CDR\Users::doStatus');
 		$routes->get('delete', 'CDR\Users::delete');
 		$routes->get('profile/(:num)', 'CDR\Users::profile/$1');
 		$routes->post('profile/(:num)', 'CDR\Users::updateProfile/$1');
+	});
+	$routes->group('config',function($routes){
+		$routes->group('groups',function($routes){
+			$routes->get('add', 'CDR\Groups::add');
+			$routes->post('add', 'CDR\Groups::store');
+			$routes->get('', 'CDR\Groups::list',);
+			$routes->get('edit/(:num)', 'CDR\Groups::edit/$1');
+		});
 	});
 }); 
 

@@ -11,11 +11,11 @@ class AuthGroupsSeed extends Seeder
 		$data = [
 				[
 					'name' => 'Admin',			
-					'description' => 'Administradores'
+					'description' => 'Grupo de administradores'
 				],
 				[
-					'name' => 'Membros',			
-					'description' => 'Membros'
+					'name' => 'User',			
+					'description' => 'Grupo de usuários'
 				],
 		];
 		// Using Query Builder

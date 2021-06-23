@@ -95,10 +95,34 @@
 								</form>
 							</div>
 						</div>
-						<div class="tab-pane fade active show" id="group" role="tabpanel" aria-labelledby="group-tab">
+						<div class="tab-pane fade" id="group" role="tabpanel" aria-labelledby="group-tab">
 							<div class="tab-pane-content mt-5">
 								<form action="<?= base_url('users/profile/'.$user->id)?>" method="post">
 									<?= csrf_field() ?>
+									<div class="form-group row mb-6">
+										<div class="col-sm-7 col-lg-7 col-form-label">
+											<label class="control outlined control-checkbox checkbox-success">Adicionar usuários
+												<input type="checkbox" >
+												<div class="control-indicator"></div>
+											</label>		
+											<label class="control outlined control-checkbox checkbox-success">Remover usuários
+												<input type="checkbox" >
+												<div class="control-indicator"></div>
+											</label>		
+											<label class="control outlined control-checkbox checkbox-success">Listar usuários
+												<input type="checkbox" >
+												<div class="control-indicator"></div>
+											</label>
+											<label class="control outlined control-checkbox checkbox-success">Editar usuários
+												<input type="checkbox" >
+												<div class="control-indicator"></div>
+											</label>						
+										</div>										
+									</div>
+									<input type="hidden" name="id" value="<?= !isset($user->id) ?: $user->id ?>">
+									<div class="d-flex justify-content-end mt-5">
+										<button type="submit" class="btn btn-primary mb-2 btn-pill">Atualizar</button>
+									</div>
 								</form>
 							</div>
 						</div>

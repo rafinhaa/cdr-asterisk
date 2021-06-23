@@ -1,3 +1,11 @@
+##### v0.0.25
+
+- Created Routes for /config/groups add,list and edit
+- Created method updateProfile in Controller CDR\Groups
+- Edited descrition in seeder AuthGroupsSeed
+- Created View config/edit
+- Created View config/list
+
 ##### v0.0.24
 
 - Created Seeder AuthGroupsSeed

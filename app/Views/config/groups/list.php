@@ -4,9 +4,9 @@
 	<div class="col-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
-				<h2>Usuários cadastrados</h2>
-				<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
-					Adicionar usuário
+				<h2>Grupos cadastrados</h2>
+				<a href="<?= base_url('/config/groups/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
+					Adicionar grupo
 				</a>
 			</div>
 			<div class="card-body">
@@ -15,34 +15,19 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Usuário</th>
-								<th>Nome</th>
-								<th>Sobrenome</th>
-								<th>E-mail</th>
-								<th>Status</th>
+								<th>Grupo</th>
+								<th>Descrição</th>
 								<th>Opções</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($users as $user): ?>							
+							<?php foreach($groups as $group): ?>							
 							<tr>
-								<td><?= $user->id ?></td>
-								<td><?= $user->username ?></td>
-								<td><?= $user->name ?></td>
-								<td><?= $user->lastname ?></td>
-								<td><?= $user->email ?></td>
+								<td><?= $group->id ?></td>
+								<td><?= $group->name ?></td>
+								<td><?= $group->description ?></td>
 								<td>
-									<?php if($user->isBanned() != 1) : ?>
-										<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>">ativo</button>
-									<?php else: ?>
-										<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>">inativo</button>
-									<?php endif; ?>
-								</td>
-								<td>
-									<a href="<?= base_url('/users/profile/'.$user->id) ?>" class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></a>
-									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $user->id ?>">
-										<i class="mdi mdi-delete"></i>
-									</button>
+                                    <a href="<?= base_url('/config/groups/edit/'.$group->id) ?>" class="button btn-sm btn-primary btn-edit"><i class="mdi mdi-pencil"></i></a>
 								</td>
 							</tr>
 							<?php endforeach; ?>

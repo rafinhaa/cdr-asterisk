@@ -14,16 +14,14 @@ class Users extends BaseController
 	protected $config;
 	protected $session;
 
-	public function __construct()
-	{
+	public function __construct(){
 		// Most services in this controller require
 		// the session to be started - so fire it up!
 		$this->session = service('session');
 		$this->config = config('Auth');
 		$this->auth = service('authentication');
 	}
-	public function add()
-	{	
+	public function add(){	
 		$data = [
 			'menuActive' => [
 				'col' => 'users',
@@ -32,8 +30,7 @@ class Users extends BaseController
 		];
         return view('users/add',array_merge($data, $this->data));
 	}
-	public function store()
-	{	
+	public function store(){	
 		$rules = [
 			'email' => [
 				'rules' => 'required|valid_email|is_unique[users.email]',				
@@ -140,7 +137,6 @@ class Users extends BaseController
 		];
         return view('users/list',array_merge($data, $this->data));
 	}
-
 	public function doStatus(){
 		if ($this->request->isAJAX()) {
 			$id = service('request')->getVar('id');
@@ -190,7 +186,6 @@ class Users extends BaseController
 		}		
 		return json_encode(['error'=> 'Essa ação não é permitida!']);
 	}
-
 	public function profile($id = null){
 		if(is_null($id)){
 			return redirect()->to('users/list')->with('message', 'Usuário não existe');
@@ -199,8 +194,9 @@ class Users extends BaseController
 		if(!$user = $usersModel->find($id)){
 			return redirect()->to('/users/list')->with('message', 'Usuário não existe');
 		}
+		
 		$data = [
-			'user' => $user,
+			'user' => $user,			
 			'menuActive' => [
 				'col' => 'users',
 				'active' => null,
@@ -208,7 +204,6 @@ class Users extends BaseController
 		];
         return view('users/profile',array_merge($data, $this->data));
 	}
-
 	public function updateProfile(){
 		$id = service('request')->getPost('id');
 		if(is_null($id) || empty($id)){
