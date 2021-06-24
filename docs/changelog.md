@@ -1,3 +1,9 @@
+##### v0.0.27
+
+- Added filter to permitions in Routes users
+- Updated method store in Controller CDR\Groups to allow insert and update
+- Created View config/add
+
 ##### v0.0.26
 
 - Created Routes with type POST for /groups/edit/

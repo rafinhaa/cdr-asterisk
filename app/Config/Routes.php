@@ -43,15 +43,15 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 	/** Redirect end */
 	$routes->get('', 'CDR\Dashboard::index');
 	$routes->group('users',function($routes){
-		$routes->get('add', 'CDR\Users::add');
-		$routes->post('add', 'CDR\Users::store');
-		$routes->get('list', 'CDR\Users::list',);
-		$routes->get('status', 'CDR\Users::doStatus');
-		$routes->get('delete', 'CDR\Users::delete');
-		$routes->get('profile/(:num)', 'CDR\Users::profile/$1');
-		$routes->post('profile/(:num)', 'CDR\Users::updateProfile/$1');
+		$routes->get('add', 'CDR\Users::add', ['filter' => 'permission:users-add']);
+		$routes->post('add', 'CDR\Users::store', ['filter' => 'permission:users-add']);
+		$routes->get('list', 'CDR\Users::list', ['filter' => 'permission:users-list']);
+		$routes->get('status', 'CDR\Users::doStatus', ['filter' => 'permission:users-status']);
+		$routes->get('delete', 'CDR\Users::delete', ['filter' => 'permission:users-remove']);
+		$routes->get('profile/(:num)', 'CDR\Users::profile/$1', ['filter' => 'permission:users-edit']);
+		$routes->post('profile/(:num)', 'CDR\Users::updateProfile/$1', ['filter' => 'permission:users-edit']);
 	});
-	$routes->group('config',function($routes){
+	$routes->group('config', ['filter' => 'role:Admin'], function($routes){
 		$routes->group('groups',function($routes){
 			$routes->get('add', 'CDR\Groups::add');
 			$routes->post('add', 'CDR\Groups::store');
