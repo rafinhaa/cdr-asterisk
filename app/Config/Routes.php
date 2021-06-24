@@ -57,6 +57,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 			$routes->post('add', 'CDR\Groups::store');
 			$routes->get('', 'CDR\Groups::list',);
 			$routes->get('edit/(:num)', 'CDR\Groups::edit/$1');
+			$routes->post('edit/(:num)', 'CDR\Groups::store');
 		});
 	});
 }); 

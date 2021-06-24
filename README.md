@@ -54,6 +54,8 @@ php spark migrate
 php spark db:seed UserSeed
 php spark db:seed AuthGroupsSeed
 php spark db:seed AuthGroupUsersSeed
+php spark db:seed AuthGroupsPermitions
+php spark db:seed AuthPermitions
 ```
 
 ## ℹ️ Info

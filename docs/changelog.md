@@ -1,3 +1,11 @@
+##### v0.0.26
+
+- Created Routes with type POST for /groups/edit/
+- Created method store in Controller CDR\Groups
+- Created AuthGroupsPermitions
+- Created AuthPermitions
+- Update README.me
+
 ##### v0.0.25
 
 - Created Routes for /config/groups add,list and edit
