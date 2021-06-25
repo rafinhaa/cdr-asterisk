@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class AuthGroupsPermitions extends Seeder
+class AuthGroupsPermissions extends Seeder
 {
 	public function run()
 	{
@@ -31,6 +31,6 @@ class AuthGroupsPermitions extends Seeder
 				],
 		];
 		// Using Query Builder
-		$this->db->table('auth_groups_permitions')->insertBatch($data);
+		$this->db->table('auth_groups_permissions')->insertBatch($data);
 	}
 }

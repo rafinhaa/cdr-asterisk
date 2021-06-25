@@ -52,9 +52,11 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
-		// E.g.: $this->session = \Config\Services::session();		
+		// E.g.: $this->session = \Config\Services::session();
+		$this->authorize = service('authorization');				
 		$this->data = [
 			'loggedUser' => user(),
+			'loggedUserPermissions' => array_column($this->authorize->groupPermissions(user()->id), 'name'),
 		];
 	}	
 }

@@ -32,6 +32,7 @@
                     <span class="nav-text">Dashboard</span>
                 </a>                
             </li>
+            <?php if (in_array('users-list', $loggedUserPermissions) && in_array('users-add', $loggedUserPermissions) ): ?>
             <li  class="has-sub <?= menu($menuActive,'users','active') ?>" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
                     <i class="mdi mdi-account-group"></i>
@@ -40,19 +41,24 @@
                 <ul  class="collapse <?= menu($menuActive,'users','show') ?>"  id="users"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">
-                        <li class="<?= menu($menuActive,'list','active') ?>" >
-                            <a class="sidenav-item-link" href="<?= base_url('/users/list') ?>">
-                            <span class="nav-text">Todos usuários</span>
-                            </a>
-                        </li>
-                        <li class="<?= menu($menuActive,'add','active') ?>" >
-                            <a class="sidenav-item-link active" href="<?= base_url('/users/add') ?>">
-                            <span class="nav-text">Adicionar</span>
-                            </a>
-                        </li>
+                        <?php if (in_array('users-list', $loggedUserPermissions) ): ?>
+                            <li class="<?= menu($menuActive,'list','active') ?>" >
+                                <a class="sidenav-item-link" href="<?= base_url('/users/list') ?>">
+                                <span class="nav-text">Todos usuários</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (in_array('users-add', $loggedUserPermissions) ): ?>
+                            <li class="<?= menu($menuActive,'add','active') ?>" >
+                                <a class="sidenav-item-link active" href="<?= base_url('/users/add') ?>">
+                                <span class="nav-text">Adicionar</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                     </div>
                 </ul>
             </li>
+            <?php endif; ?>
             <li  class="has-sub <?= menu($menuActive,'config','active') ?>" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#config" aria-expanded="false" aria-controls="users">
                     <i class="mdi mdi-settings"></i>

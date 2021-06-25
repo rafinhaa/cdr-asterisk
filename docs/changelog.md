@@ -1,3 +1,7 @@
+##### v0.0.28
+
+- Inicialized menu dynamic with permissions
+
 ##### v0.0.27
 
 - Added filter to permitions in Routes users
