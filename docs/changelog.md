@@ -1,3 +1,7 @@
+##### v0.0.29
+
+- Finished as permissions settings
+
 ##### v0.0.28
 
 - Inicialized menu dynamic with permissions

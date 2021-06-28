@@ -5,9 +5,11 @@
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
 				<h2>Usuários cadastrados</h2>
-				<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
-					Adicionar usuário
-				</a>
+				<?php if (in_array('users-add', $loggedUserPermissions) ): ?>
+					<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
+						Adicionar usuário
+					</a>
+				<?php endif; ?>				
 			</div>
 			<div class="card-body">
 				<div class="basic-data-table">
@@ -32,17 +34,23 @@
 								<td><?= $user->lastname ?></td>
 								<td><?= $user->email ?></td>
 								<td>
-									<?php if($user->isBanned() != 1) : ?>
-										<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>">ativo</button>
-									<?php else: ?>
-										<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>">inativo</button>
-									<?php endif; ?>
+									<?php if (in_array('users-status', $loggedUserPermissions) ): ?>
+										<?php if($user->isBanned() != 1) : ?>
+											<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>">ativo</button>
+										<?php else: ?>
+											<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>">inativo</button>
+										<?php endif; ?>
+									<?php endif; ?>									
 								</td>
 								<td>
-									<a href="<?= base_url('/users/profile/'.$user->id) ?>" class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></a>
-									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $user->id ?>">
-										<i class="mdi mdi-delete"></i>
-									</button>
+									<?php if (in_array('users-edit', $loggedUserPermissions) ): ?>
+										<a href="<?= base_url('/users/profile/'.$user->id) ?>" class="button btn-sm btn-primary btn-edit" data-field="<?= $user->id ?>"><i class="mdi mdi-pencil"></i></a>
+									<?php endif; ?>
+									<?php if (in_array('users-remove', $loggedUserPermissions) ): ?>
+										<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $user->id ?>">
+											<i class="mdi mdi-delete"></i>
+										</button>
+									<?php endif; ?>
 								</td>
 							</tr>
 							<?php endforeach; ?>
