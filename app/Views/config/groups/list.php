@@ -28,6 +28,9 @@
 								<td><?= $group->description ?></td>
 								<td>
                                     <a href="<?= base_url('/config/groups/edit/'.$group->id) ?>" class="button btn-sm btn-primary btn-edit"><i class="mdi mdi-pencil"></i></a>
+									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $group->id ?>">
+											<i class="mdi mdi-delete"></i>
+									</button>
 								</td>
 							</tr>
 							<?php endforeach; ?>

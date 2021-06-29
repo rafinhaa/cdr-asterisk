@@ -58,6 +58,8 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 			$routes->get('', 'CDR\Groups::list',);
 			$routes->get('edit/(:num)', 'CDR\Groups::edit/$1');
 			$routes->post('edit/(:num)', 'CDR\Groups::store');
+			$routes->get('remove', 'CDR\Groups::removeUserInGroup');
+			$routes->get('delgroup', 'CDR\Groups::removeGroup');
 		});
 	});
 }); 

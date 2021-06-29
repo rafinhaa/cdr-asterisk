@@ -1,3 +1,13 @@
+##### v0.0.30
+
+- Created Routes for /groups/delgroup
+- Created Routes for /groups/remove
+- Created methoid removeUserInGroup in Controller CDR\Groups
+- Created methoid removeGroup in Controller CDR\Groups
+- Created button to remove group in View groups/list
+- Created file removeGroup.js in public/assets/js/app/groups
+- Created file removeUser.js in public/assets/js/app/groups
+
 ##### v0.0.29
 
 - Finished as permissions settings

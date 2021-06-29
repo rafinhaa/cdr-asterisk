@@ -25,7 +25,8 @@ class Groups extends BaseController
 			'scripts' => [
 				'DataTables' => 'assets/plugins/data-tables/jquery.datatables.min.js',
 				'Bootstrap4-DT' => 'assets/plugins/data-tables/datatables.bootstrap4.min.js',
-				'DataTables Default' => 'assets/plugins/data-tables/default.datatable.js',		
+				'DataTables Default' => 'assets/plugins/data-tables/default.datatable.js',			
+				'Remove Group' => 'assets/js/app/groups/removeGroup.js',				
 			],
 			'css' => [
 				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
@@ -53,6 +54,9 @@ class Groups extends BaseController
 			'menuActive' => [
 				'col' => 'config',
 				'active' => null,
+			],
+			'scripts' => [				
+				'Remove User' => 'assets/js/app/groups/removeUser.js',				
 			],
 		];
         return view('config/groups/edit',array_merge($data, $this->data));
@@ -132,5 +136,44 @@ class Groups extends BaseController
 			$this->authorize->removePermissionFromGroup('users-status',$id);
 		}
 		return redirect()->to('config/groups')->with('message', $mensagem);
+	}
+	public function removeUserInGroup(){
+		if ($this->request->isAJAX()) {
+			$id = service('request')->getVar('id');
+			//return json_encode(['success'=> 'success', 'csrf' => csrf_hash(), 'query ' => $id ]);
+			if(is_null($userId) || empty($userId)){
+				return json_encode(['error'=> 'ID dont passed.']);
+			}
+			if(user_id() == $userId){
+				return json_encode(['error'=> "Entre com outra conta para remover"]);
+			}
+			if(!$this->authorize->group($group_id)){
+				return json_encode(['error'=> "Esse grupo não existe"]);
+			}
+			if($this->authorize->removeUserFromGroup($userId, $group_id)){
+				return json_encode(['success'=> 'Usuário removido']);
+			}else{
+				return json_encode(['error'=> 'Não foi possível remover o usuário']);
+			}
+		}		
+		return json_encode(['error'=> 'Essa ação não é permitida!']);
+	}
+	public function removeGroup(){
+		if ($this->request->isAJAX()) {
+			$id = service('request')->getVar('id');
+			//return json_encode(['success'=> 'success', 'csrf' => csrf_hash(), 'query ' => $id ]);
+			if(is_null($id) || empty($id)){
+				return json_encode(['error'=> 'ID dont passed.']);
+			}
+			if(!$this->authorize->group($id)){
+				return json_encode(['error'=> "Esse grupo não existe"]);
+			}
+			if($this->authorize->deleteGroup($id)){
+				return json_encode(['success'=> 'Grupo removido']);
+			}else{
+				return json_encode(['error'=> 'Não foi possível remover esse grupo']);
+			}
+		}		
+		return json_encode(['error'=> 'Essa ação não é permitida!']);
 	}
 }
