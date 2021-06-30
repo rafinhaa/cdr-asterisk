@@ -86,7 +86,7 @@
 								<td><?= $uin['lastname'] ?></td>
 								<td><?= $uin['email'] ?></td>
 								<td>									
-									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $uin['id'] ?>">
+									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $uin['id'] ?>" data-group="<?= $group->id ?>">
 										<i class="mdi mdi-delete"></i>
 									</button>
 								</td>

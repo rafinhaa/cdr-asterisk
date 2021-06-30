@@ -139,7 +139,8 @@ class Groups extends BaseController
 	}
 	public function removeUserInGroup(){
 		if ($this->request->isAJAX()) {
-			$id = service('request')->getVar('id');
+			$userId = service('request')->getVar('id');
+			$group_id = service('request')->getVar('group_ip');
 			//return json_encode(['success'=> 'success', 'csrf' => csrf_hash(), 'query ' => $id ]);
 			if(is_null($userId) || empty($userId)){
 				return json_encode(['error'=> 'ID dont passed.']);

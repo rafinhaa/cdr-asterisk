@@ -5,8 +5,7 @@ jQuery(document).ready(function(){
 		var inputValue = field.attr('data-field');
 		$('.modal-footer .btn-primary').attr("data-field",inputValue);			
 		var name = field.parents('tr').find('td:nth-child(3)').text();
-		var lastname = field.parents('tr').find('td:nth-child(4)').text();
-		$('.modal-body').text(`Deseja apagar o usuário ${name} ${lastname} ?`);
+		$('.modal-body').text(`Deseja apagar o grupo ${name}?`);
 	});
 
 	$('.modal-footer .btn-primary').on('click', function (){
@@ -16,7 +15,7 @@ jQuery(document).ready(function(){
 			type: 'get',
 			headers: {'X-Requested-With': 'XMLHttpRequest'},
 			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',			
-			url: baseUrl + '/groups/delgroup',
+			url: baseUrl + '/config/groups/delgroup',
 			data: {id:inputValue},
 			dataType: 'json',
 			success: function(result){
