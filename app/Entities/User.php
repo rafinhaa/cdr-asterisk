@@ -22,4 +22,15 @@ class User extends MythUser
 	{
 		return trim(trim($this->attributes['name']) . ' ' . trim($this->attributes['lastname']));
 	}
+
+	 /**
+	 * returns TRUE or FALSE if the user is in the group 
+	 *
+	 * @return bool
+	 */
+	public function inGroup($group_id,$user_id)
+	{
+		$authorize = $auth = service('authorization');
+		return $authorize->inGroup($group_id, $user_id);		
+	}
 }

@@ -60,7 +60,7 @@
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
 				<h2>Usuários no grupo</h2>
-				<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
+				<a href="<?= base_url('/config/groups/'.$group->id.'/add/user') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
 					Adicionar usuário no grupo
 				</a>
 			</div>
@@ -78,20 +78,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($usersInGroup as $uin): ?>							
-							<tr>
-								<td><?= $uin['id'] ?></td>
-								<td><?= $uin['username'] ?></td>
-								<td><?= $uin['name'] ?></td>
-								<td><?= $uin['lastname'] ?></td>
-								<td><?= $uin['email'] ?></td>
-								<td>									
-									<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $uin['id'] ?>" data-group="<?= $group->id ?>">
-										<i class="mdi mdi-delete"></i>
-									</button>
-								</td>
-							</tr>
-							<?php endforeach; ?>
+								<?php foreach($usersInGroup as $uin): ?>							
+								<tr>
+									<td><?= $uin['id'] ?></td>
+									<td><?= $uin['username'] ?></td>
+									<td><?= $uin['name'] ?></td>
+									<td><?= $uin['lastname'] ?></td>
+									<td><?= $uin['email'] ?></td>
+									<td>									
+										<button type="button" class="btn btn-sm btn-danger btn-pill btn-delete-modal" data-toggle="modal" data-target="#deleteModal" data-field="<?= $uin['id'] ?>" data-group="<?= $group->id ?>">
+											<i class="mdi mdi-delete"></i>
+										</button>
+									</td>
+								</tr>
+								<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>

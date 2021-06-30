@@ -1,3 +1,8 @@
+##### v0.0.32
+- Created Routes for add users in group
+- Created method listUsersToAddInGroup in Controller CDR\Groups
+- Created method inGroup in User Model
+- Created View addUserInGroup
 ##### v0.0.31
 - Finished logic to remove group
 - Finished logic to remove user in group

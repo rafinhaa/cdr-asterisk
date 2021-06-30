@@ -177,4 +177,48 @@ class Groups extends BaseController
 		}		
 		return json_encode(['error'=> 'Essa ação não é permitida!']);
 	}
+	public function listUsersToAddInGroup($group_id = null){
+		
+		if(!$this->authorize->group($group_id)){
+			return redirect()->back()->with("message","Esse grupo não existe");
+		}
+		$usersModel = model(UserModel::class);
+		$data = [
+			'users' => $usersModel->findAll(),
+			'group_id' => $group_id,
+			'menuActive' => [
+				'col' => 'config',
+			],
+			'scripts' => [
+				'DataTables' => 'assets/plugins/data-tables/jquery.datatables.min.js',
+				'Bootstrap4-DT' => 'assets/plugins/data-tables/datatables.bootstrap4.min.js',
+				'DataTables Default' => 'assets/plugins/data-tables/default.datatable.js',				
+				'Change Status' => 'assets/js/app/groups/addUserInGroup.js',				
+			],
+			'css' => [
+				'DataTables' => 'assets/plugins/data-tables/datatables.bootstrap4.min.css',				
+			],
+		];
+        return view('config/groups/addUserInGroup',array_merge($data, $this->data));
+	}
+	public function doAddUserinGroup(){
+		if ($this->request->isAJAX()) {
+			$userId = service('request')->getVar('id');
+			$group_id = service('request')->getVar('group_id');	
+			
+			if(user_id() == $userId){
+				return json_encode(['error'=> "Você não pode se remover"]);
+			}
+			
+			if($this->authorize->inGroup($group_id,$userId)){
+				if($this->authorize->removeUserFromGroup($userId, $group_id))
+					return json_encode(['success'=> 'Usuário removido']);
+			}else{
+				if($this->authorize->addUserToGroup($userId, $group_id))
+					return json_encode(['success'=> 'Usuário adicionado']);				
+			}
+			return json_encode(['error'=> 'Ocorreu um erro']);
+		}		
+		return json_encode(['error'=> 'Essa ação não é permitida!']);
+	}
 }
