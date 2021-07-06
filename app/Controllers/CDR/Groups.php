@@ -41,10 +41,10 @@ class Groups extends BaseController
 	}
 	public function edit($id = null){
 		if(is_null($id)){
-			return redirect()->to('config/groups')->with('message', 'Esse grupo não existe');
+			return redirect()->to('config/groups')->with('error', 'Esse grupo não existe');
 		}		
 		if(!$group = $this->authorize->group($id)){
-			return redirect()->to('config/groups')->with('message', 'Esse grupo não existe');
+			return redirect()->to('config/groups')->with('error', 'Esse grupo não existe');
 		}
 		
 		$data = [
@@ -89,16 +89,16 @@ class Groups extends BaseController
 		$description = $this->request->getPost('description');
 		if ( is_null($this->request->getPost('id')) ){
 			if( !$id = $this->authorize->createGroup($name, $description)){
-				return redirect()->to('config/groups')->with('message', 'Ocorreu um erro ao criar o grupo');
+				return redirect()->to('config/groups')->with('error', 'Ocorreu um erro ao criar o grupo');
 			}
 			$mensagem = 'Criado com sucesso';
 		}else{
 			$id = $this->request->getPost('id');
 			if(!$this->authorize->group($id)){
-				return redirect()->to('config/groups')->with('message', 'Esse grupo não existe');
+				return redirect()->to('config/groups')->with('info', 'Esse grupo não existe');
 			}
 			if(!$this->authorize->updateGroup($id, $name, $description)){
-				return redirect()->to('config/groups')->with('message', 'Ocorreu um erro ao alterar o nome e descrição');
+				return redirect()->to('config/groups')->with('error', 'Ocorreu um erro ao alterar o nome e descrição');
 			}
 			$mensagem = 'Atualizado com sucesso';
 		}

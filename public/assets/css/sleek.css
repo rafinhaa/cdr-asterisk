@@ -12758,7 +12758,17 @@ input[type=radio] {
   right: 0;
   z-index: 999; }
   #toast-container .toast-success {
-    background-color: #4c84ff;
+    /*background-color: #4c84ff;*/
+    background-color: #29cc97;
+    opacity: 1; }
+  #toast-container .toast-error {
+    background-color: #fe2e3e;
+    opacity: 1; }  
+  #toast-container .toast-warning {
+    background-color: #d8a600;
+    opacity: 1; }
+  #toast-container .toast-info {
+    background-color: #10aabe;
     opacity: 1; }
 
 #toast-container > div {

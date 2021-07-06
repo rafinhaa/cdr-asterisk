@@ -188,11 +188,11 @@ class Users extends BaseController
 	}
 	public function profile($id = null){
 		if(is_null($id)){
-			return redirect()->to('users/list')->with('message', 'Usuário não existe');
+			return redirect()->to('users/list')->with('info', 'Usuário não existe');
 		}
 		$usersModel = model(UserModel::class);
 		if(!$user = $usersModel->find($id)){
-			return redirect()->to('/users/list')->with('message', 'Usuário não existe');
+			return redirect()->to('/users/list')->with('info', 'Usuário não existe');
 		}
 		
 		$data = [
@@ -207,11 +207,11 @@ class Users extends BaseController
 	public function updateProfile(){
 		$id = service('request')->getPost('id');
 		if(is_null($id) || empty($id)){
-			return redirect()->to('users/list')->with('message', 'ID não informado');			
+			return redirect()->to('users/list')->with('error', 'ID não informado');			
 		}
 		$usersModel = model(UserModel::class);
 		if(!$user = $usersModel->find($id)){
-			return redirect()->to('/users/list')->with('message', 'Usuário não existe');
+			return redirect()->to('/users/list')->with('info', 'Usuário não existe');
 		}
 		$rules = [
 			'name' => [

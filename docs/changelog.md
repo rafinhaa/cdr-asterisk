@@ -1,3 +1,5 @@
+##### v0.0.34
+- Fixed error in Toastr message
 ##### v0.0.33
 - Created Migration CdrTable
 ##### v0.0.32

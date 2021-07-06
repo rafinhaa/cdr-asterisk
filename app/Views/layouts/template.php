@@ -12,7 +12,7 @@
 		<!-- PLUGINS CSS STYLE -->
 		<?= link_tag('assets/plugins/nprogress/nprogress.css') ?>
 		<!-- No Extra plugin used -->
-		<?= link_tag('assets/plugins/toastr/toastr.min.css') ?>
+		<?= link_tag('assets/plugins/toastr/toastr.css') ?>
 		<!-- SLEEK CSS -->
 		<?= link_tag(['id' => 'sleek-css', 'rel' => 'stylesheet', 'href' => 'assets/css/sleek.css']) ?>
 		<!-- FAVICON -->
@@ -31,13 +31,8 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script src="assets/plugins/nprogress/nprogress.js"></script>
 	</head>
 	<body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
-		<script>
-			NProgress.configure({ showSpinner: false });
-			NProgress.start();
-		</script>
 		<div class="wrapper">
 			<!-- LEFT SIDEBAR -->
 			<aside class="left-sidebar bg-sidebar">
@@ -76,6 +71,7 @@
 		</div>
 
 		<script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>		
+		<script src="<?= base_url('assets/plugins/nprogress/nprogress.js') ?>"></script>		
 		<script src="<?= base_url('assets/plugins/slimscrollbar/jquery.slimscroll.min.js') ?>"></script>	
 		<script src="<?= base_url('assets/plugins/toastr/toastr.min.js') ?>"></script>
 		<script src="<?= base_url('assets/js/sleek.bundle.js') ?>"></script>
