@@ -1,3 +1,5 @@
+##### v0.0.33
+- Created Migration CdrTable
 ##### v0.0.32
 - Created Routes for add users in group
 - Created method listUsersToAddInGroup in Controller CDR\Groups
