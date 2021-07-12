@@ -64,6 +64,9 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 			$routes->get('adduser', 'CDR\Groups::doAddUserinGroup');
 		});
 	});
+	$routes->group('cdr', function($routes){
+		$routes->get('', 'CDR\cdr::list');
+	});
 }); 
 
 /*

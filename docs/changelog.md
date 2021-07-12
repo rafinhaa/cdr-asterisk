@@ -1,3 +1,9 @@
+##### v0.0.35
+- Created Routes for /cdr/list
+- Created Controller CDR
+- Created method list in Controller CDR
+- Created CDR Model
+- Created View list in /cdr
 ##### v0.0.34
 - Fixed error in Toastr message
 ##### v0.0.33
