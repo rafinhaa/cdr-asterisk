@@ -5,5 +5,5 @@ use CodeIgniter\Model;
 
 class CdrModel extends Model
 {
-    protected $table      = 'ast_cdr';
+    protected $table = 'ast_cdr';
 }

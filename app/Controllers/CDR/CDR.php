@@ -15,6 +15,9 @@ class CDR extends BaseController
 			'cdr' => $cdrModel->findAll(),
 			'menuActive' => [
 				'active' => 'cdr',
+			],			
+			'scripts' => [
+				'DataTables' => 'assets/plugins/jquery-mask-input/jquery.mask.min.js',			
 			],
 		];
 		return view('cdr/list',array_merge($data, $this->data));

@@ -1,3 +1,6 @@
+##### v0.0.36
+- Included library JQueryMask
+- Inicialized CDR Form
 ##### v0.0.35
 - Created Routes for /cdr/list
 - Created Controller CDR
