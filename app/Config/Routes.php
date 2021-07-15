@@ -66,6 +66,7 @@ $routes->group('/', ['filter' => 'login'], function($routes){
 	});
 	$routes->group('cdr', function($routes){
 		$routes->get('', 'CDR\cdr::list');
+		$routes->post('', 'CDR\cdr::search');
 	});
 }); 
 

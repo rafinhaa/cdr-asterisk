@@ -1,3 +1,7 @@
+##### v0.0.37
+- Created Route post for /cdr/search
+- Created method search in Controller CDR
+- Created method search in Model CDR
 ##### v0.0.36
 - Included library JQueryMask
 - Inicialized CDR Form

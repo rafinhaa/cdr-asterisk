@@ -8,60 +8,61 @@
                 <h2>Contextual Table</h2>            
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="<?= base_url('/cdr') ?>" method="post">
+                    <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label class="text-dark font-weight-medium" for="">Data início</label>
+                            <label class="text-dark font-weight-medium" for="dt-start">Data início</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         <i class="mdi mdi-calendar-range"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" data-mask="00/00/0000" placeholder="" aria-label="" autocomplete="off" maxlength="10">
+                                <input type="text" class="form-control" data-mask="00/00/0000" id="dt-start" placeholder="dd/mm/aaaa" name="dt-start" aria-label="" autocomplete="off" maxlength="10">
                             </div> 
                         </div>
                         <div class="col-sm-6">
-                            <label class="text-dark font-weight-medium" for="">Data fim</label>
+                            <label class="text-dark font-weight-medium" for="dt-end">Data fim</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         <i class="mdi mdi-calendar-range"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" data-mask="00/00/0000" placeholder="" aria-label="" autocomplete="off" maxlength="10">
+                                <input type="text" class="form-control" data-mask="00/00/0000" id="dt-end" name="dt-end" placeholder="dd/mm/aaaa" aria-label="" autocomplete="off" maxlength="10">
                             </div> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="text-dark font-weight-medium" for="exampleFormControlSelect12">Campo</label>
-                                <select class="form-control" id="exampleFormControlSelect12">
-                                    <option>Destino</option>
-                                    <option>Origem</option>
-                                    <option>Canal origem</option>
-                                    <option>Canal destino</option>
+                                <label class="text-dark font-weight-medium" for="ControlSelect">Campo</label>
+                                <select class="form-control" id="ControlSelect" name="field-cdr">
+                                    <option value="1">Destino</option>
+                                    <option value="2">Origem</option>
+                                    <option value="3">Canal origem</option>
+                                    <option value="4">Canal destino</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="text-dark font-weight-medium" for="exampleFormControlSelect12">Valor</label>
-                                <input class="form-control" type="text" name="" id="">
+                                <label class="text-dark font-weight-medium" for="inputValue">Valor</label>
+                                <input class="form-control" type="text" name="input-value" id="inputValue">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="text-dark font-weight-medium" for="exampleFormControlSelect12">Status</label>
-                                <select class="form-control" id="exampleFormControlSelect12">
-                                    <option>ALL</option>
-                                    <option>ANSWERED</option>
-                                    <option>BUSY</option>
-                                    <option>FALIED</option>
-                                    <option>NO ANWSER</option>
+                                <label class="text-dark font-weight-medium" for="selectStatus">Status</label>
+                                <select class="form-control" id="selectStatus" name="status">
+                                    <option value="1">ALL</option>
+                                    <option value="2">ANSWERED</option>
+                                    <option value="3">BUSY</option>
+                                    <option value="4">FALIED</option>
+                                    <option value="5">NO ANWSER</option>
                                 </select>
                             </div>
                         </div>
