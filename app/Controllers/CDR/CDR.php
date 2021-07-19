@@ -2,6 +2,8 @@
 
 namespace App\Controllers\CDR;
 use App\Controllers\BaseController;
+use CodeIgniter\I18n\Time;
+
 
 class CDR extends BaseController
 {
@@ -25,16 +27,65 @@ class CDR extends BaseController
 	public function search()
 	{	
 		if($this->request->getMethod() == 'post'){
+
+			$rules = [
+				'dt-start' => [
+					'rules' => 'permit_empty|valid_date[d/m/Y]',				
+					'errors' => [
+						'valid_date' => 'A data está no formato inválido',
+					],
+				],
+				'dt-end' => [
+					'rules' => 'permit_empty|valid_date[d/m/Y]',				
+					'errors' => [
+						'valid_date' => 'A data está no formato inválido',
+					],
+				],
+				'input-value' => [
+					'rules' => 'permit_empty',
+				],
+			];
+
+			if (! $this->validate($rules))
+			{
+				return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+			}	
+
 			$values = $this->request->getPost();
-			$dtStart = $this->request->getPost('dt-start');
-			$dtEnd = $this->request->getPost('dt-end');
-			$fieldCdr = $this->request->getPost('field-cdr');
-			$inputValue = $this->request->getPost('input-value');
-			$status = $this->request->getPost('status');
-			
+			if(!empty($values['dt-start'])){
+				$dtStart = explode('/',$values['dt-start']);
+				$values['dt-start'] = $dtStart[2] . '-' . $dtStart[1] . '-' . $dtStart[0];
+			}
+			if(!empty($values['dt-end'])){
+				$dtender = explode('/',$values['dt-end']);			
+				$values['dt-end'] =   $dtender[2] . '-' . $dtender[1] . '-' . $dtender[0];
+			}
+			switch($values['status']){
+				case 2:
+					$values['status'] = 'ANSWERED'; break;
+				case 3:
+					$values['status'] = 'BUSY'; break;
+				case 4:
+					$values['status'] = 'FALIED'; break;
+				case 5:
+					$values['status'] = 'NO ANWSER'; break;
+			}
+			switch($values['field-cdr']){
+				case 1:
+					$values['field-cdr'] = 'dst'; break;
+				case 2:
+					$values['field-cdr'] = 'src'; break;
+				case 3:
+					$values['field-cdr'] = 'channel'; break;
+				case 4:
+					$values['field-cdr'] = 'dstchannel'; break;
+			}
 			$cdrModel = new \App\Models\CdrModel();
 			$data = [
 				'cdr' => $cdrModel->search($values),
+				'dt_start' => $this->request->post('dt-start'),
+				'dt_end' => $this->request->post('dt-end'),
+				'input_value' => $values['input-value'],
 				'menuActive' => [
 					'active' => 'cdr',
 				],			

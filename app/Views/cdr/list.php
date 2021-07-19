@@ -19,7 +19,8 @@
                                         <i class="mdi mdi-calendar-range"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" data-mask="00/00/0000" id="dt-start" placeholder="dd/mm/aaaa" name="dt-start" aria-label="" autocomplete="off" maxlength="10">
+                                <input type="text" class="form-control <?= !session('errors.dt-start') ?: 'is-invalid' ?>" data-mask="00/00/0000" id="dt-start" placeholder="dd/mm/aaaa" name="dt-start" aria-label="" autocomplete="off" maxlength="10" value="<?= old('dt-start') ?>">
+                                <div class="invalid-feedback"><?= session('errors.dt-start') ?></div>
                             </div> 
                         </div>
                         <div class="col-sm-6">
@@ -30,7 +31,8 @@
                                         <i class="mdi mdi-calendar-range"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" data-mask="00/00/0000" id="dt-end" name="dt-end" placeholder="dd/mm/aaaa" aria-label="" autocomplete="off" maxlength="10">
+                                <input type="text" class="form-control <?= !session('errors.dt-end') ?: 'is-invalid' ?>" data-mask="00/00/0000" id="dt-end" name="dt-end" placeholder="dd/mm/aaaa" aria-label="" autocomplete="off" maxlength="10" value="<?= old('dt-end') ?>">
+                                <div class="invalid-feedback"><?= session('errors.dt-end') ?></div>
                             </div> 
                         </div>
                     </div>
