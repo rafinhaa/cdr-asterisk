@@ -14,7 +14,7 @@ class CDR extends BaseController
 	{	
 		$cdrModel = new \App\Models\CdrModel();
 		$data = [
-			'cdr' => $cdrModel->findAll(),
+			'cdr' => $cdrModel->findToday(),
 			'menuActive' => [
 				'active' => 'cdr',
 			],			

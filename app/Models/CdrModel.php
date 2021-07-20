@@ -16,4 +16,8 @@ class CdrModel extends Model
         (!empty($values["input-value"]))   ? $whereArray[ $values["field-cdr"] ] = $values["input-value"] : null;
         return $this->where($whereArray)->get()->getResultArray();
     }
+    public function findToday(){ 
+        $date = \CodeIgniter\I18n\Time::today();
+        return $this->where(['calldate >=' => $date])->get()->getResultArray();
+    }
 }
