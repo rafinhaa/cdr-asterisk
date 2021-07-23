@@ -1,3 +1,5 @@
+##### v0.0.39
+- Fix some bugs
 ##### v0.0.38
 - Created method in Model CDR
 ##### v0.0.37

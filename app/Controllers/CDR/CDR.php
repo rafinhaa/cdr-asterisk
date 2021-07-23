@@ -2,7 +2,6 @@
 
 namespace App\Controllers\CDR;
 use App\Controllers\BaseController;
-use CodeIgniter\I18n\Time;
 
 
 class CDR extends BaseController
@@ -15,6 +14,7 @@ class CDR extends BaseController
 		$cdrModel = new \App\Models\CdrModel();
 		$data = [
 			'cdr' => $cdrModel->findToday(),
+			'dateStart' => \CodeIgniter\I18n\Time::today()->format('d/m/Y'),
 			'menuActive' => [
 				'active' => 'cdr',
 			],			
@@ -54,11 +54,11 @@ class CDR extends BaseController
 			$values = $this->request->getPost();
 			if(!empty($values['dt-start'])){
 				$dtStart = explode('/',$values['dt-start']);
-				$values['dt-start'] = $dtStart[2] . '-' . $dtStart[1] . '-' . $dtStart[0];
+				$values['dt-starter'] = $dtStart[2] . '-' . $dtStart[1] . '-' . $dtStart[0];								
 			}
 			if(!empty($values['dt-end'])){
 				$dtender = explode('/',$values['dt-end']);			
-				$values['dt-end'] =   $dtender[2] . '-' . $dtender[1] . '-' . $dtender[0];
+				$values['dt-ender'] = $dtender[2] . '-' . $dtender[1] . '-' . $dtender[0];
 			}
 			switch($values['status']){
 				case 2:
@@ -81,10 +81,11 @@ class CDR extends BaseController
 					$values['field-cdr'] = 'dstchannel'; break;
 			}
 			$cdrModel = new \App\Models\CdrModel();
+			
 			$data = [
 				'cdr' => $cdrModel->search($values),
-				'dt_start' => $this->request->post('dt-start'),
-				'dt_end' => $this->request->post('dt-end'),
+				'dateStart' => $values['dt-start'],
+				'dateEnd' => $values['dt-end'],
 				'input_value' => $values['input-value'],
 				'menuActive' => [
 					'active' => 'cdr',
