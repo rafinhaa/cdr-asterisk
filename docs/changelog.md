@@ -1,3 +1,5 @@
+##### v0.0.40
+- Inicialized charts
 ##### v0.0.39
 - Fix some bugs
 ##### v0.0.38

@@ -10,8 +10,11 @@ class Dashboard extends BaseController
 		$data = [
 			'menuActive' => [
 				'active' => 'dash',
+			],			
+			'scripts' => [
+				'Charts.js' => 'assets/plugins/charts/chart.js',			
 			],
 		];
-		return view('layouts/template',array_merge($data, $this->data));
+		return view('dashboard/index',array_merge($data, $this->data));
 	}
 }
