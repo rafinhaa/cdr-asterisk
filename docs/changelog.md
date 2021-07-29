@@ -1,3 +1,10 @@
+##### v0.0.41
+- Created Model DashboardModel
+- Created method searchCallsStatus in Model DashboardModel
+- Created method totalCalls in Model DashboardModel
+- Created method totalTimeCalls in Model DashboardModel
+- View template now recive script to create charts
+- View dashboard/index have two card with statistics
 ##### v0.0.40
 - Inicialized charts
 ##### v0.0.39
