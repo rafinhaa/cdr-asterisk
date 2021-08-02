@@ -8,7 +8,6 @@ class CdrModel extends Model
     protected $table = 'ast_cdr';
 
     public function search($values){
-        //print_r( $values); die;
         $whereArray = [];
         (!empty($values["dt-starter"])) ? $whereArray['calldate >='] = $values["dt-start"] : null;
         (!empty($values["dt-ender"]))   ? $whereArray['calldate <='] = $values["dt-end"] : null;        

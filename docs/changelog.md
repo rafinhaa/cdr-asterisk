@@ -1,3 +1,5 @@
+##### v0.0.44
+- Fixed some bugs
 ##### v0.0.43
 - Add linux compatibility
 ##### v0.0.42

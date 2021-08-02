@@ -15,7 +15,6 @@ class Dashboard extends BaseController
 		$callsStatus = $this->dashModel->searchCallsStatus($this->date);
 		$charts = null;
 		foreach($callsStatus as $array) {
-			die('chegou aqui');
             $charts['label'][] = $array['disposition'];
             $charts['data'][] = $array['total'];
       	}

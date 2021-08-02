@@ -11,7 +11,7 @@ class DashboardModel extends Model
         return $this->select('disposition, count(disposition) as total')->where(['MONTH(calldate) = ' => $date->getMonth()])->groupBy('disposition')->get()->getResultArray();
     }
     public function totalCalls($date){
-        return $this->where(['MONTH(calldate) = ' => $date->getMonth()])->get()->getResultArray();
+        return $this->where(['MONTH(calldate) = ' => $date->getMonth()])->countAllResults();
     }
     public function totalTimeCalls($date){
         $result = $this->selectSum('duration')->where(['MONTH(calldate) = ' => $date->getMonth()])->get()->getResultArray();        

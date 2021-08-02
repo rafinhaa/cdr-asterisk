@@ -70,6 +70,15 @@
 			</div>
 		</div>
 
+		<script>
+			var baseUrl = "<?= base_url();?>";
+			var siteUrl = "<?= site_url();?>";
+			
+			<?php if (isset($charts) && !is_null($charts)) : ?>
+				//var charts = JSON.parse(`json_encode($charts)`);
+				var charts = <?=json_encode($charts) ?>;		
+			<?php endif; ?>		 
+		</script>
 		<script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>		
 		<script src="<?= base_url('assets/plugins/nprogress/nprogress.js') ?>"></script>		
 		<script src="<?= base_url('assets/plugins/slimscrollbar/jquery.slimscroll.min.js') ?>"></script>	
@@ -83,13 +92,4 @@
 		<?php endif ?>
 		<?= $this->include('layouts/_alerts') ?>
 	</body>
-	<script>
-		var baseUrl = "<?= base_url();?>";
-		var siteUrl = "<?= site_url();?>";
-		
-		<?php if (isset($charts) && !is_null($charts)) : ?>
-			//var charts = JSON.parse(`json_encode($charts)`);
-			var charts = <?=json_encode($charts) ?>;		
-		<?php endif; ?>		 
-	</script>
 </html>
