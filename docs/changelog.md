@@ -1,3 +1,6 @@
+##### v0.0.42
+- The methods in Controller Dashboard now receive an date
+- Some visual bugs were fixed.
 ##### v0.0.41
 - Created Model DashboardModel
 - Created method searchCallsStatus in Model DashboardModel

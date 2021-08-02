@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
-		<title>Sleek - Admin Dashboard Template</title>
+		<title>CDR - Call Detail Record</title>
 		<!-- GOOGLE FONTS -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
 		<link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
@@ -87,37 +87,9 @@
 		var baseUrl = "<?= base_url();?>";
 		var siteUrl = "<?= site_url();?>";
 		
-		<?php if (isset($charts)) : ?>
+		<?php if (isset($charts) && !is_null($charts)) : ?>
 			//var charts = JSON.parse(`json_encode($charts)`);
 			var charts = <?=json_encode($charts) ?>;		
 		<?php endif; ?>		 
 	</script>
-	<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: charts.label,
-        datasets: [{
-            label: '# of Votes',
-            data: charts.data,
-            backgroundColor: [
-                '#29cc97',
-                '#0fa0b2',
-                '#fec400',
-                '#fe5461',
-            ],
-            borderColor: [
-                '#29cc97',
-                '#0fa0b2',
-                '#fec400',
-                '#fe5461',
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-    }
-});
-</script>
 </html>

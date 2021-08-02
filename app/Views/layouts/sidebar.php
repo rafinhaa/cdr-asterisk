@@ -19,7 +19,7 @@
                     <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                 </g>
             </svg>
-            <span class="brand-name text-truncate">Sleek Dashboard</span>
+            <span class="brand-name text-truncate">CDR Dashboard</span>
         </a>
     </div>
     <!-- begin sidebar scrollbar -->

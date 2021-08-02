@@ -12,19 +12,9 @@
 						<div class="card-body">
 							<h4 class="py-2 text-dark"><p><?= $user->getFullName() ?></p></h4>
 							<p><?= $user->email ?></p>
-							<a class="btn btn-primary btn-pill btn-lg my-4" href="#">Follow</a>
 						</div>
 					</div>
 					<hr class="w-100">
-					<div class="contact-info pt-4">
-						<h5 class="text-dark mb-1">Contact Information</h5>
-						<p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
-						<p><?= $user->email ?></p>
-						<p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
-						<p>+99 9539 2641 31</p>
-						<p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
-						<p>Nov 15, 1990</p>
-					</div>
 				</div>
 			</div>
 			<div class="col-lg-8 col-xl-9">

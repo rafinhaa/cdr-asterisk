@@ -5,7 +5,7 @@
 			<meta charset="utf-8" />
 			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
+			<meta name="description" content="CDR Dashboard">
 			<title></title>
 			<!-- GOOGLE FONTS -->
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -25,6 +25,7 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 			<![endif]-->
 			<script src="assets/plugins/nprogress/nprogress.js"></script>
+			<title>CDR - Dashboard</title>
 	</head>
 	</head>
 	<body class="" id="body">
@@ -42,7 +43,7 @@
 											<path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
 										</g>
 									</svg>
-									<span class="brand-name">Sleek Dashboard</span>
+									<span class="brand-name">CDR Dashboard</span>
 								</a>
 							</div>
 						</div>
@@ -69,7 +70,7 @@
 													<div class="control-indicator"></div>
 												</label>
 											</div>
-											<p><a class="text-blue" href="#"><?=lang('Auth.forgotYourPassword')?></a></p>
+											<!-- <p><a class="text-blue" href="#"><?=lang('Auth.forgotYourPassword')?></a></p> -->
 										</div>
 										<button type="submit" class="btn btn-lg btn-primary btn-block mb-4"><?=lang('Auth.signIn')?></button>
 									</div>
