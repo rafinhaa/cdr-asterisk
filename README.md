@@ -45,7 +45,7 @@ vi .env
 #### Execute migrations
 
 ```bash
-php spark migrate
+php spark migrate -all
 ```
 
 #### Execute seeders
@@ -54,8 +54,8 @@ php spark migrate
 php spark db:seed UserSeed
 php spark db:seed AuthGroupsSeed
 php spark db:seed AuthGroupUsersSeed
-php spark db:seed AuthGroupsPermitions
-php spark db:seed AuthPermitions
+php spark db:seed AuthPermissions
+php spark db:seed AuthGroupsPermissions
 ```
 
 ## ℹ️ Info
