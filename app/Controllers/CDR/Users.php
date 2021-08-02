@@ -15,8 +15,6 @@ class Users extends BaseController
 	protected $session;
 
 	public function __construct(){
-		// Most services in this controller require
-		// the session to be started - so fire it up!
 		$this->session = service('session');
 		$this->config = config('Auth');
 		$this->auth = service('authentication');
@@ -115,7 +113,7 @@ class Users extends BaseController
 			return redirect()->to('/users/list')->with('message', lang('Auth.activationSuccess'));
 		}
 		// Success!
-		return redirect()->to('/users/list')->with('message', lang('Auth.registerSuccess'));
+		return redirect()->to('/users/list')->with('message', 'Usuário cadastrado com sucesso');
 	}
 	public function list(){
 		$usersModel = model(UserModel::class);

@@ -7,7 +7,7 @@
 				<div class="profile-content-left profile-left-spacing pt-5 pb-3 px-3 px-xl-5">
 					<div class="card text-center widget-profile px-0 border-0">
 						<div class="card-img mx-auto rounded-circle">
-							<img src="/assets/img/user/user.png" alt="user image">
+							<img src="<?= base_url('assets/img/user/user.png') ?>" alt="user image">
 						</div>
 						<div class="card-body">
 							<h4 class="py-2 text-dark"><p><?= $user->getFullName() ?></p></h4>

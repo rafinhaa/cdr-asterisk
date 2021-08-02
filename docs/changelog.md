@@ -1,3 +1,6 @@
+##### v0.0.45
+- Fixed an issue in Model CdrModel where it did not search
+- Fixed other bugs
 ##### v0.0.44
 - Fixed some bugs
 ##### v0.0.43
