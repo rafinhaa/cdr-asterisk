@@ -1,3 +1,7 @@
+##### v0.0.46
+- Created method lastCalls in Model DashboardModel
+- The Controller DashboardController now has a method lastCalls
+- The View DashboardView now has a method lastCalls
 ##### v0.0.45
 - Fixed an issue in Model CdrModel where it did not search
 - Fixed other bugs

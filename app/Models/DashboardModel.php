@@ -18,4 +18,7 @@ class DashboardModel extends Model
         $minutes = array_shift($result)['duration'];
         return gmdate("H:i:s", $minutes);
     }
+    public function lastCalls($date, $limit){
+        return $this->where(['MONTH(calldate) = ' => $date->getMonth()])->orderBy('calldate','DESC')->limit($limit)->get()->getResultArray();
+    }
 }

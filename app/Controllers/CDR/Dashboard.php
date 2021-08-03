@@ -20,6 +20,7 @@ class Dashboard extends BaseController
       	}
 		$totalCalls = $this->dashModel->totalCalls($this->date);
 		$totalTimeCalls = $this->dashModel->totalTimeCalls($this->date);
+		$lastCalls = $this->dashModel->lastCalls($this->date, 10);
 		$data = [
 			'menuActive' => [
 				'active' => 'dash',
@@ -31,6 +32,7 @@ class Dashboard extends BaseController
 			'charts' => $charts,
 			'totalCalls' => $totalCalls,
 			'totalTimeCalls' => $totalTimeCalls,
+			'lastCalls' => $lastCalls,
 		];
 		return view('dashboard/index',array_merge($data, $this->data));
 	}
