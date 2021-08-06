@@ -17,7 +17,7 @@ class UserSeed extends Seeder
 			'created_at'=> Time::now(),
 			'updated_at'=> Time::now(),
 			'name'=> 'Admin',
-			'lastname'=> 'Instrator',
+			'lastname'=> 'Istrator',
 		];
 		// Using Query Builder
 		$this->db->table('users')->insert($data);

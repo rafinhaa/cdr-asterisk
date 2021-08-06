@@ -17,6 +17,7 @@ CDR Asterisk is a web application written with the codeigniter 4 framework, whic
 Next steps:
 - [] Create function to search and playing audios in cdr page
 - [] Improve the dashboard View
+- [] Upload photo in profile user
 
 ## 🚀 Technologies
 

@@ -1,3 +1,5 @@
+##### v0.0.49
+- Inicialized logic to search audio
 ##### v0.0.48
 - Edited Seeder UserSeed, now sql inster have name and lastname
 - Edited View User/progife image profile

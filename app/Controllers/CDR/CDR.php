@@ -8,9 +8,16 @@ class CDR extends BaseController
 {
 	public function __construct(){
 		$cdrModel = new \App\Models\CdrModel();
+		helper(['filesystem','array']);
 	}
 	public function list()	
 	{	
+		$map = directory_map(WRITEPATH.'audios');
+		echo '<pre>';
+		echo $this->meu_array('2021',$map);
+		
+		print_r($map); die;
+		
 		$cdrModel = new \App\Models\CdrModel();
 		$data = [
 			'cdr' => $cdrModel->findToday(),
@@ -98,4 +105,21 @@ class CDR extends BaseController
 		}
 		return redirect()->back()->with('error',"A ação que você soliticou não é válida");
 	}
+	private function meu_array($needle, $haystack, $currentKey = '') {
+		foreach($haystack as $key=>$value) {
+			if (is_array($value)) {
+				$nextKey = soma($needle,$value, $currentKey . '[' . $key . ']');
+				if ($nextKey) {
+					return $nextKey;
+				}				
+			}
+			/*else if($value==$needle) {
+				return is_numeric($key) ? $currentKey . '[' .$key . ']' : $currentKey;
+			}*/
+		}
+		return 'false';
+	}
+	/*private function soma() {
+		return 2+5;
+	}*/
 }
