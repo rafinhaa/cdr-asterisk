@@ -1,3 +1,6 @@
+##### v0.0.48
+- Edited Seeder UserSeed, now sql inster have name and lastname
+- Edited View User/progife image profile
 ##### v0.0.47
 - Small changes
 ##### v0.0.46
