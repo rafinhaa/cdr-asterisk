@@ -1,3 +1,5 @@
+##### v0.0.47
+- Small changes
 ##### v0.0.46
 - Created method lastCalls in Model DashboardModel
 - The Controller DashboardController now has a method lastCalls
