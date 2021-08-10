@@ -1,3 +1,6 @@
+##### v0.0.53
+- Inicialized Internacionaliization
+- Created file Cdr.php in Language/pt-BR/Cdr
 ##### v0.0.52
 - Fixing some details about the audio
 ##### v0.0.51

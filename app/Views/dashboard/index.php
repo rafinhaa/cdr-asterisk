@@ -6,7 +6,7 @@
 		<div class="card card-mini mb-4">
 			<div class="card-body">			
 				<h2 class="mb-1"><?= $totalCalls ? $totalCalls : '0' ?></h2>
-				<p>Total Ligações</p>
+				<p><?= lang('Cdr.totalCalls') ?></p>
 			</div>
 		</div>
 	</div>
@@ -14,7 +14,7 @@
 		<div class="card card-mini  mb-4">
 			<div class="card-body">
 				<h2 class="mb-1"><?= $totalTimeCalls ? $totalTimeCalls : '0' ?></h2>
-				<p>Tempo total</p>
+				<p><?= lang('Cdr.totalTime') ?></p>
 			</div>
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 	<div class="col-6">
 		<div class="card card-default">
 			<div class="card-header justify-content-center">
-				<h2 class="text-center">Ligações</h2>
+				<h2 class="text-center"><?= lang('Cdr.calls') ?></h2>
 			</div>
 			<div class="card-body">
 				<canvas id="myChart" width="100" height="100"></canvas>
@@ -33,17 +33,17 @@
 	<div class="col-6">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom">
-				<h2>Últimas ligações</h2>
+				<h2><?= lang('Cdr.lastCalls') ?></h2>
 			</div>
 			<div class="card-body">				
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th scope="col">Data</th>
+							<th scope="col"><?= lang('Cdr.date') ?></th>
 							<th scope="col">Clid</th>
-							<th scope="col">Origem</th>
-							<th scope="col">Destino</th>
-							<th scope="col">Duração</th>
+							<th scope="col"><?= lang('Cdr.source') ?></th>
+							<th scope="col"><?= lang('Cdr.destination') ?></th>
+							<th scope="col"><?= lang('Cdr.duration') ?></th>
 						</tr>
 					</thead>
 					<tbody>

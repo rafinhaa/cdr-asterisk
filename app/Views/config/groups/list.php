@@ -4,9 +4,9 @@
 	<div class="col-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
-				<h2>Grupos cadastrados</h2>
+				<h2><?= lang('Cdr.groups.registredGroups') ?></h2>
 				<a href="<?= base_url('/config/groups/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
-					Adicionar grupo
+					<?= lang('Cdr.groups.addGroup') ?>
 				</a>
 			</div>
 			<div class="card-body">
@@ -15,9 +15,9 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Grupo</th>
-								<th>Descrição</th>
-								<th>Opções</th>
+								<th><?= lang('Cdr.groups.group') ?></th>
+								<th><?= lang('Cdr.groups.description') ?></th>
+								<th><?= lang('Cdr.groups.options') ?></th>
 							</tr>
 						</thead>
 						<tbody>

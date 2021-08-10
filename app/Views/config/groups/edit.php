@@ -5,20 +5,20 @@
     <div class="col-lg-12">
         <div class="card card-default">
             <div class="card-header card-header-border-bottom">
-                <h2>Editar grupo</h2>
+                <h2><?= lang('Cdr.groupsEdit.editGroup') ?></h2>
             </div>
             <div class="card-body">
                 <form action="<?= base_url('/config/groups/edit/'.$group->id) ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="nameId">Nome do grupo</label>
-                            <input type="text" class="form-control <?= !session('errors.name') ?: 'is-invalid' ?>" id="nameId" name="name" placeholder="Digite o nome" value="<?= old('name') ? old('name') : $group->name ?>">
+                            <label for="nameId"><?= lang('Cdr.groupsEdit.groupName') ?></label>
+                            <input type="text" class="form-control <?= !session('errors.name') ?: 'is-invalid' ?>" id="nameId" name="name" placeholder="<?= lang('Cdr.groupsEdit.groupName') ?>" value="<?= old('name') ? old('name') : $group->name ?>">
                             <div class="invalid-feedback"><?= session('errors.name') ?></div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="descriptionId">Descrição</label>
-                            <input type="text" class="form-control <?= !session('errors.description') ?: 'is-invalid' ?>" id="descriptionId" name="description" placeholder="Descrição do grupo" value="<?= old('description') ? old('description') : $group->description ?>">
+                            <label for="descriptionId"><?= lang('Cdr.groupsEdit.description') ?></label>
+                            <input type="text" class="form-control <?= !session('errors.description') ?: 'is-invalid' ?>" id="descriptionId" name="description" placeholder="<?= lang('Cdr.groupsEdit.descriptionPh') ?>" value="<?= old('description') ? old('description') : $group->description ?>">
                             <div class="invalid-feedback"><?= session('errors.description') ?></div>
                         </div>
                     </div>
@@ -26,17 +26,17 @@
 						<table class="table table-borderless">
 							<thead>
 								<tr>
-									<th scope="col">Categoria</th>
-									<th scope="col">Adicionar</th>
-									<th scope="col">Listar</th>
-									<th scope="col">Editar</th>
-									<th scope="col">Apagar</th>
-									<th scope="col">Status</th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.category') ?></th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.toAdd') ?></th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.toList') ?></th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.toEdit') ?></th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.toDelete') ?></th>
+									<th scope="col"><?= lang('Cdr.groupsEdit.toStatus') ?></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td scope="row">Usuários</td>
+									<td scope="row"><?= lang('Cdr.groupsEdit.users') ?></td>
 									<td class="text-center"><label class="control outlined control-checkbox checkbox-success"><input type="checkbox" name="users-add"<?= in_array('users-add',$permitions) ? 'checked="checked"' : "" ?>><div class="control-indicator"></div></label></td>
 									<td class="text-center"><label class="control outlined control-checkbox checkbox-success"><input type="checkbox" name="users-list"<?= in_array('users-list',$permitions) ? 'checked="checked"' : "" ?>><div class="control-indicator"></div></label></td>
 									<td class="text-center"><label class="control outlined control-checkbox checkbox-success"><input type="checkbox" name="users-edit"<?= in_array('users-edit',$permitions) ? 'checked="checked"' : "" ?>><div class="control-indicator"></div></label></td>
@@ -48,7 +48,7 @@
                     </div>      
                     <input type="hidden" name="id" value="<?= $group->id ?>"> 
                     <div class="form-footer pt-4 pt-5 mt-4 border-top">
-						<button type="submit" class="btn btn-primary btn-default">Enviar</button>
+						<button type="submit" class="btn btn-primary btn-default"><?= lang('Cdr.groupsEdit.submit') ?></button>
 					</div>
                 </form>
             </div>
@@ -59,9 +59,9 @@
 	<div class="col-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
-				<h2>Usuários no grupo</h2>
+				<h2><?= lang('Cdr.groupsEdit.usersInGroup') ?></h2>
 				<a href="<?= base_url('/config/groups/'.$group->id.'/add/user') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
-					Adicionar usuário no grupo
+					<?= lang('Cdr.groupsEdit.addUser') ?>
 				</a>
 			</div>
 			<div class="card-body">
@@ -70,11 +70,11 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Usuário</th>
-								<th>Nome</th>
-								<th>Sobrenome</th>
-								<th>E-mail</th>
-								<th>Opções</th>
+								<th><?= lang('Cdr.groupsEdit.user') ?></th>
+								<th><?= lang('Cdr.groupsEdit.name') ?></th>
+								<th><?= lang('Cdr.groupsEdit.lastname') ?></th>
+								<th><?= lang('Cdr.groupsEdit.email') ?></th>
+								<th><?= lang('Cdr.groupsEdit.options') ?></th>
 							</tr>
 						</thead>
 						<tbody>

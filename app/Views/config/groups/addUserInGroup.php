@@ -4,7 +4,7 @@
 	<div class="col-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
-				<h2>Usuários cadastrados</h2>				
+				<h2><?= lang('Cdr.groupsUsers.addUsers') ?></h2>				
 			</div>
 			<div class="card-body">
 				<div class="basic-data-table">
@@ -12,11 +12,11 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Usuário</th>
-								<th>Nome</th>
-								<th>Sobrenome</th>
-								<th>E-mail</th>
-								<th>Adicionar</th>
+								<th><?= lang('Cdr.groupsUsers.user') ?></th>
+								<th><?= lang('Cdr.groupsUsers.name') ?></th>
+								<th><?= lang('Cdr.groupsUsers.lastname') ?></th>
+								<th><?= lang('Cdr.groupsUsers.email') ?></th>
+								<th><?= lang('Cdr.groupsUsers.add') ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -30,9 +30,9 @@
 								<td>
 									<?php if (in_array('users-status', $loggedUserPermissions) ): ?>
 										<?php if($user->inGroup($group_id, $user->id)) : ?>
-											<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>" data-group="<?= $group_id ?>">no grupo</button>
+											<button class="badge badge-primary btn-status" data-field="<?= $user->id ?>" data-group="<?= $group_id ?>"><?= lang('Cdr.groupsUsers.inGroup') ?></button>
 										<?php else: ?>
-											<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>" data-group="<?= $group_id ?>">fora do grupo</button>
+											<button class="badge badge-secondary btn-status" data-field="<?= $user->id ?>" data-group="<?= $group_id ?>"><?= lang('Cdr.groupsUsers.outGroup') ?></button>
 										<?php endif; ?>
 									<?php endif; ?>									
 								</td>

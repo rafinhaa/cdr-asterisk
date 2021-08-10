@@ -4,10 +4,10 @@
 	<div class="col-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom d-flex justify-content-between">
-				<h2>Usuários cadastrados</h2>
+				<h2><?= lang('Cdr.registeredUsers') ?></h2>
 				<?php if (in_array('users-add', $loggedUserPermissions) ): ?>
 					<a href="<?= base_url('/users/add') ?>" class="btn btn-outline-primary btn-sm text-uppercase">
-						Adicionar usuário
+						<?= lang('Cdr.addUser') ?>
 					</a>
 				<?php endif; ?>				
 			</div>
@@ -17,12 +17,12 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Usuário</th>
-								<th>Nome</th>
-								<th>Sobrenome</th>
-								<th>E-mail</th>
-								<th>Status</th>
-								<th>Opções</th>
+								<th><?= lang('Cdr.usersList.user') ?></th>
+								<th><?= lang('Cdr.name') ?></th>
+								<th><?= lang('Cdr.lastName') ?></th>
+								<th><?= lang('Cdr.email') ?></th>
+								<th><?= lang('Cdr.usersList.status') ?></th>
+								<th><?= lang('Cdr.usersList.options') ?></th>
 							</tr>
 						</thead>
 						<tbody>
