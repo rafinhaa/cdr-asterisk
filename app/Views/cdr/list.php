@@ -101,9 +101,12 @@
                                 <td><?= $line["disposition"] ?></td>                            
                                 <td><?= $line["duration"] ?></td>                            
                                 <td>
-                                    <audio controls>
-                                        <source src="<?= base_url('assets/audios/'.$line["audiofile"]) ?>" type="audio/mpeg">
-                                    </audio>
+                                    <?php if (!empty($line["audiofile"])): ?>
+                                        <audio controls>
+                                            <source src="<?= base_url('assets/audios/'.$line["audiofile"]) ?>" preload="auto" type="audio/WAV">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    <?php endif; ?>
                                 </td>                            
                         </tr>
                         <?php endforeach; ?>

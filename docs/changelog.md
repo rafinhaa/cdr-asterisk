@@ -1,3 +1,5 @@
+##### v0.0.52
+- Fixing some details about the audio
 ##### v0.0.51
 - Updated logic to play audio
 ##### v0.0.50

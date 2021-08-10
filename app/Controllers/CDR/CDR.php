@@ -117,6 +117,9 @@ class CDR extends BaseController
 			}
 			//else if(preg_match("/{$needle}/", $value)) {
 			else if( empty($needle) || strpos($value, $needle) !== false ) { //str_contains				
+				if( strpos($currentKey, '\\') !== false ) { //str_contains
+					$currentKey = str_replace('\\', '/', $currentKey);
+				}
 				return $currentKey . $value;
 			}
 		}
