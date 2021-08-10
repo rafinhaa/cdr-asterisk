@@ -13,6 +13,9 @@
 ## 🔖 About
 
 CDR Asterisk is a web application written with the codeigniter 4 framework, which allows you to view the details of a call and listen to recordings.
+Includes:
+- [X] Crud for users
+- [X] Crud for groups and permissions
 
 Next steps:
 - [X] Create function to search and playing audios in cdr page
