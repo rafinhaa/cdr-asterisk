@@ -7,20 +7,15 @@ use App\Controllers\BaseController;
 class CDR extends BaseController
 {
 	public function __construct(){
-		$cdrModel = new \App\Models\CdrModel();
-		helper(['filesystem','array']);
+		$this->cdrModel = new \App\Models\CdrModel();
+		helper(['filesystem']);
+		$this->map = directory_map(ROOTPATH.'public\audios');
 	}
 	public function list()	
-	{	
-		$map = directory_map(WRITEPATH.'audios');
-		echo '<pre>';
-		echo $this->meu_array('2021',$map);
-		
-		print_r($map); die;
-		
-		$cdrModel = new \App\Models\CdrModel();
+	{							
+		$cdr = $this->cdrModel->findToday();				
 		$data = [
-			'cdr' => $cdrModel->findToday(),
+			'cdr' => $this->audiofileInCdr($cdr),
 			'dateStart' => \CodeIgniter\I18n\Time::today()->format('d/m/Y'),
 			'menuActive' => [
 				'active' => 'cdr',
@@ -87,10 +82,9 @@ class CDR extends BaseController
 				case 4:
 					$values['field-cdr'] = 'dstchannel'; break;
 			}
-			$cdrModel = new \App\Models\CdrModel();
-			
+			$cdr = $this->cdrModel->search($values);
 			$data = [
-				'cdr' => $cdrModel->search($values),
+				'cdr' => $this->audiofileInCdr($cdr),
 				'dateStart' => $values['dt-start'],
 				'dateEnd' => $values['dt-end'],
 				'input_value' => $values['input-value'],
@@ -105,21 +99,42 @@ class CDR extends BaseController
 		}
 		return redirect()->back()->with('error',"A ação que você soliticou não é válida");
 	}
-	private function meu_array($needle, $haystack, $currentKey = '') {
+
+	/** 
+    * Função para procurar um valor em um array multidimensional
+    * @access private 
+    * @param String $needle
+    * @param String $haystack
+    * @return false or path to file 
+    */ 
+	private function search_multi_array($needle, $haystack, $currentKey = '') {
 		foreach($haystack as $key=>$value) {
 			if (is_array($value)) {
-				$nextKey = soma($needle,$value, $currentKey . '[' . $key . ']');
+				$nextKey = $this->search_multi_array($needle,$value, $currentKey . $key );
 				if ($nextKey) {
 					return $nextKey;
-				}				
+				}
 			}
-			/*else if($value==$needle) {
-				return is_numeric($key) ? $currentKey . '[' .$key . ']' : $currentKey;
-			}*/
+			//else if(preg_match("/{$needle}/", $value)) {
+			else if( empty($needle) || strpos($value, $needle) !== false ) { //str_contains
+				//return is_numeric($key) ? WRITEPATH . $currentKey . $value : $currentKey;
+				return $currentKey . $value;
+			}
 		}
-		return 'false';
+		return false;
 	}
-	/*private function soma() {
-		return 2+5;
-	}*/
+
+	/**
+	* Função para acrescentar a chave audiofile ao array de cdr
+	* @access private
+	* @param Array $cdr
+	* @return array modificado
+	*/	
+	private function audiofileInCdr($cdr){
+		foreach($cdr as $key => $value){
+			$cdr[$key]['audiofile'] = $this->search_multi_array($key['uniqueid'],$this->map);
+		}
+		//echo '<pre>'; print_r ( $cdr );die;
+		return $cdr;
+	}
 }

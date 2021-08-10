@@ -78,7 +78,6 @@
                 <table class="table mt-4">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Call Date</th>
                             <th scope="col">Clid</th>
                             <th scope="col">SRC</th>
@@ -92,8 +91,7 @@
                     </thead>
                     <tbody>
                         <?php foreach($cdr as $line): ?>
-                            <tr class="table-secondary">                            
-                                <td scope="row">1</td>
+                            <tr class="table-secondary">
                                 <td><?= $line["calldate"] ?></td>                            
                                 <td><?= $line["clid"] ?></td>                            
                                 <td><?= $line["src"] ?></td>                            
@@ -103,7 +101,9 @@
                                 <td><?= $line["disposition"] ?></td>                            
                                 <td><?= $line["duration"] ?></td>                            
                                 <td>
-
+                                    <audio controls>
+                                        <source src="<?= base_url('assets/audios/'.$line["audiofile"]) ?>" type="audio/mpeg">
+                                    </audio>
                                 </td>                            
                         </tr>
                         <?php endforeach; ?>

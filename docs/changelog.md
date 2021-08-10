@@ -1,3 +1,5 @@
+##### v0.0.50
+- Inicialized logic to play audio
 ##### v0.0.49
 - Inicialized logic to search audio
 ##### v0.0.48

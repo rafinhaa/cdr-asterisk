@@ -61,7 +61,9 @@ writable/uploads/*
 !writable/uploads/index.html
 
 writable/debugbar/*
+
 writable/audios/*
+public/assets/audios/*
 
 php_errors.log
 
