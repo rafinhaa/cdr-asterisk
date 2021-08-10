@@ -9,10 +9,10 @@ class CDR extends BaseController
 	public function __construct(){
 		$this->cdrModel = new \App\Models\CdrModel();
 		helper(['filesystem']);
-		$this->map = directory_map(ROOTPATH.'public\audios');
+		$this->map = directory_map(ROOTPATH.'public/assets/audios');
 	}
 	public function list()	
-	{							
+	{		
 		$cdr = $this->cdrModel->findToday();				
 		$data = [
 			'cdr' => $this->audiofileInCdr($cdr),
@@ -116,8 +116,7 @@ class CDR extends BaseController
 				}
 			}
 			//else if(preg_match("/{$needle}/", $value)) {
-			else if( empty($needle) || strpos($value, $needle) !== false ) { //str_contains
-				//return is_numeric($key) ? WRITEPATH . $currentKey . $value : $currentKey;
+			else if( empty($needle) || strpos($value, $needle) !== false ) { //str_contains				
 				return $currentKey . $value;
 			}
 		}
@@ -132,9 +131,8 @@ class CDR extends BaseController
 	*/	
 	private function audiofileInCdr($cdr){
 		foreach($cdr as $key => $value){
-			$cdr[$key]['audiofile'] = $this->search_multi_array($key['uniqueid'],$this->map);
+			$cdr[$key]['audiofile'] = $this->search_multi_array($cdr[$key]['uniqueid'],$this->map);
 		}
-		//echo '<pre>'; print_r ( $cdr );die;
 		return $cdr;
 	}
 }

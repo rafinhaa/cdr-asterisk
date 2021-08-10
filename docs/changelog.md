@@ -1,3 +1,5 @@
+##### v0.0.51
+- Updated logic to play audio
 ##### v0.0.50
 - Inicialized logic to play audio
 ##### v0.0.49
