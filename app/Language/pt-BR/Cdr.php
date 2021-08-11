@@ -1,6 +1,19 @@
 <?php
 
 return [
+    //Header
+    'header.profile'                => 'Meu perfil',   
+    'header.logoff'                 => 'Sair',   
+
+    //Sidebar
+    'sidebar.dashboard'             => 'Dashboard',   
+    'sidebar.cdr'                   => 'CDR',  
+    'sidebar.users'                 => 'Usuários',  
+    'sidebar.allUsers'              => 'Todos usuários',  
+    'sidebar.addUser'               => 'Adicionar',  
+    'sidebar.settings'              => 'Configurações',  
+    'sidebar.groups'                => 'Grupos',  
+
     //Dashboard
     'totalCalls'                    => 'Total Ligações',
     'totalTime'                     => 'Tempo total',
@@ -126,4 +139,8 @@ return [
     'groupsEdit.email'              => 'E-mail',
     'groupsEdit.options'            => 'Opções',
 
+    //Alerts
+    'alerts.warning'                => 'Atenção',
+    'alerts.yes'                    => 'Sim',
+    'alerts.back'                   => 'Back',
 ];

@@ -16,12 +16,11 @@ CDR Asterisk is a web application written with the codeigniter 4 framework, whic
 Includes:
 - [X] Crud for users
 - [X] Crud for groups and permissions
+- [X] Internationalization
 
 Next steps:
-- [X] Create function to search and playing audios in cdr page
 - [] Improve the dashboard View
 - [] Upload photo in profile user
-- [] Internationalization
 
 ## 🚀 Technologies
 
@@ -51,6 +50,12 @@ cp env .env
 vi .env
 ```
 
+#### Set permissions to writable folder
+
+```bash
+chmod -R 777 writable
+```
+
 #### Execute migrations
 
 ```bash
@@ -67,12 +72,18 @@ php spark db:seed AuthPermissions
 php spark db:seed AuthGroupsPermissions
 ```
 
+#### Create a symbolic link from the audio files
+
+```bash
+ln -s /var/spool/asterisk/monitor /var/www/html/cdr-asterisk/public/assets/audios
+```
+
 ## ℹ️ Info
 
 #### Credentials
 
-- Usuário: admin@admin.com
-- Senha: password
+- User: admin@admin.com
+- Pass: password
 
 ## 📄 Changelog
 

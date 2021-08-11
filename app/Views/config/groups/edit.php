@@ -103,7 +103,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="modalLabel">Atenção</h5>
+				<h5 class="modal-title" id="modalLabel"><?= lang('Cdr.alerts.yes') ?></h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 				</button>
@@ -112,8 +112,8 @@
 				Modal body text goes here.
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger btn-pill" data-dismiss="modal">Voltar</button>
-				<button type="button" class="btn btn-primary btn-pill" data-dismiss="modal">Sim</button>
+				<button type="button" class="btn btn-danger btn-pill" data-dismiss="modal"><?= lang('Cdr.alerts.back') ?></button>
+				<button type="button" class="btn btn-primary btn-pill" data-dismiss="modal"><?= lang('Cdr.alerts.yes') ?></button>
 			</div>
 		</div>
 	</div>

@@ -27,11 +27,11 @@
                     </li>
                     <li>
                         <a href="<?= base_url('users/profile/'.$loggedUser->id ) ?>">
-                        <i class="mdi mdi-account"></i> Meu perfil
+                        <i class="mdi mdi-account"></i> <?= lang('Cdr.header.profile') ?>
                         </a>
                     </li>
                     <li class="dropdown-footer">
-                        <a href="<?= base_url('/logout') ?>"> <i class="mdi mdi-logout"></i> Sair </a>
+                        <a href="<?= base_url('/logout') ?>"> <i class="mdi mdi-logout"></i><?= lang('Cdr.header.logoff') ?></a>
                     </li>
                 </ul>
             </li>

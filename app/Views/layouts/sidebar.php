@@ -29,20 +29,20 @@
             <li  class="has-sub <?= menu($menuActive,'dash','active') ?>" >
                 <a class="sidenav-item-link" href="<?= base_url('/') ?>">
                     <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Dashboard</span>
+                    <span class="nav-text"><?= lang('Cdr.sidebar.dashboard') ?></span>
                 </a>                
             </li>
             <li  class="has-sub <?= menu($menuActive,'cdr','active') ?>" >
                 <a class="sidenav-item-link" href="<?= base_url('/cdr') ?>">
                     <i class="mdi mdi-format-list-bulleted"></i>
-                    <span class="nav-text">CDR</span>
+                    <span class="nav-text"><?= lang('Cdr.sidebar.cdr') ?></span>
                 </a>                
             </li>
             <?php if (in_array('users-list', $loggedUserPermissions) && in_array('users-add', $loggedUserPermissions) ): ?>
             <li  class="has-sub <?= menu($menuActive,'users','active') ?>" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
                     <i class="mdi mdi-account-group"></i>
-                    <span class="nav-text">Usuários</span> <b class="caret"></b>
+                    <span class="nav-text"><?= lang('Cdr.sidebar.users') ?></span> <b class="caret"></b>
                 </a>                                
                 <ul  class="collapse <?= menu($menuActive,'users','show') ?>"  id="users"
                     data-parent="#sidebar-menu">
@@ -50,14 +50,14 @@
                         <?php if (in_array('users-list', $loggedUserPermissions) ): ?>
                             <li class="<?= menu($menuActive,'list','active') ?>" >
                                 <a class="sidenav-item-link" href="<?= base_url('/users/list') ?>">
-                                <span class="nav-text">Todos usuários</span>
+                                <span class="nav-text"><?= lang('Cdr.sidebar.allUsers') ?></span>
                                 </a>
                             </li>
                         <?php endif; ?>
                         <?php if (in_array('users-add', $loggedUserPermissions) ): ?>
                             <li class="<?= menu($menuActive,'add','active') ?>" >
                                 <a class="sidenav-item-link active" href="<?= base_url('/users/add') ?>">
-                                <span class="nav-text">Adicionar</span>
+                                <span class="nav-text"><?= lang('Cdr.sidebar.addUser') ?></span>
                                 </a>
                             </li>
                         <?php endif; ?>
@@ -68,14 +68,14 @@
             <li  class="has-sub <?= menu($menuActive,'config','active') ?>" >
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#config" aria-expanded="false" aria-controls="users">
                     <i class="mdi mdi-settings"></i>
-                    <span class="nav-text">Configurações</span> <b class="caret"></b>
+                    <span class="nav-text"><?= lang('Cdr.sidebar.settings') ?></span> <b class="caret"></b>
                 </a>                                
                 <ul  class="collapse <?= menu($menuActive,'config','show') ?>"  id="config"
                     data-parent="#sidebar-menu">
                     <div class="sub-menu">
                         <li class="<?= menu($menuActive,'groups','active') ?>" >
                             <a class="sidenav-item-link" href="<?= base_url('/config/groups') ?>">
-                            <span class="nav-text">Grupos</span>
+                            <span class="nav-text"><?= lang('Cdr.sidebar.groups') ?></span>
                             </a>
                         </li>
                     </div>
