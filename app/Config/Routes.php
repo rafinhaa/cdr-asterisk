@@ -32,7 +32,7 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
+$routes->resource('api/v1/users');
 $routes->group('/', ['filter' => 'login'], function($routes){
 	/** Redirect attempts to Registration, Activation and Forgot/Resets */
 	$routes->match(['get', 'post'], 'register', 'CDR\Dashboard::index');

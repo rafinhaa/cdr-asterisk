@@ -38,16 +38,6 @@ class Users extends BaseController
 					'is_unique' => 'Esse e-mail já está cadastrado',
 				],
 			],
-			'username' => [
-				'rules' => 'required|alpha_numeric_space|min_length[3]|max_length[30]|is_unique[users.username]',				
-				'errors' => [
-					'required' => 'Nome de usuário é necessário',
-					'alpha_numeric_space' => 'Não pode conter caracteres não alfanuméricos',
-					'min_length' => 'O usuário deve conter pelo menos 3 caracteres',
-					'max_length' => 'O usuário não pode ultrapassar 30 caracteres',
-					'is_unique' => 'Nome de usuário já cadastrado',
-				],
-			],
 			'name' => [
 				'rules' => 'required|min_length[2]',
 				'errors' => [

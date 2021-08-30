@@ -1,3 +1,9 @@
+##### v0.0.57
+- Edited config in file Auth.php
+- Disabled csrf filter in all api routes
+- Added in Router file the routes for Controller/Api/V1/Users
+- Edited Users Controllers
+- Edited Users Model
 ##### v0.0.56
 - Created file Cdr.php in Language/us/Cdr
 - Update README.md

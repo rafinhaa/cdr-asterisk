@@ -58,7 +58,6 @@ class Auth extends \Myth\Auth\Config\Auth
 	 */
 	public $validFields = [
 		'email',
-		'username',
 	];
 
 	/**
