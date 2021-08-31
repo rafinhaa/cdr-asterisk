@@ -1,0 +1,146 @@
+<?php
+
+return [
+    //Header
+    'header.profile'                => 'Meu perfil',   
+    'header.logoff'                 => 'Sair',   
+
+    //Sidebar
+    'sidebar.dashboard'             => 'Dashboard',   
+    'sidebar.cdr'                   => 'CDR',  
+    'sidebar.users'                 => 'Usuários',  
+    'sidebar.allUsers'              => 'Todos usuários',  
+    'sidebar.addUser'               => 'Adicionar',  
+    'sidebar.settings'              => 'Configurações',  
+    'sidebar.groups'                => 'Grupos',  
+
+    //Dashboard
+    'totalCalls'                    => 'Total Ligações',
+    'totalTime'                     => 'Tempo total',
+    'calls'                         => 'Ligações',
+    'lastCalls'                     => 'Últimas ligações',
+    'date'                          => 'Data',
+    'source'                        => 'Origem',
+    'destination'                   => 'Destino',
+    'duration'                      => 'Duração',
+
+    //CDR
+    'report'                        => 'Relatório',
+    'dateStart'                     => 'Data início',
+    'dateEnd'                       => 'Data fim',
+    'field'                         => [
+        'field'                     => 'field',
+        'destination'               => 'Destino',
+        'source'                    => 'Origem',
+        'channelSrc'                => 'Canal origem',
+        'channelDst'                => 'Canal destino',
+    ],
+    'search'                        => 'Buscar',
+    'value'                         => 'Valor',
+    'status'                        => 'Status',
+    'callDate'                      => 'Data Ligação',
+    'channel'                       => 'Canal',
+    'dstChannel'                    => 'DST Canal',
+    'disposition'                   => 'Disposição',
+    'duration'                      => 'Tempo',
+    'audio'                         => 'Audio',
+
+    //Users List
+    'registeredUsers'               => 'Usuários cadastrados',
+    'addUser'                       => 'Adicionar usuário',
+    'usersList.user'                => 'Usuário',
+    'name'                          => 'Nome',
+    'lastName'                      => 'Sobrenome',
+    'email'                         => 'E-mail',
+    'usersList.status'              => 'Status',
+    'usersList.options'             => 'Opções',
+
+    //Users add
+    'userAdd.newUser'               => 'Novo usuário',
+    'userAdd.email'                 => 'E-mail',
+    'userAdd.emailPlaceholder'      => 'Digite o e-mail',
+    'userAdd.user'                  => 'Usuário',
+    'userAdd.userPlaceholder'       => 'Nome de usuário',
+    'userAdd.name'                  => 'Nome',
+    'userAdd.namePlaceholder'       => 'Nome',
+    'userAdd.lastname'              => 'Sobrenome',
+    'userAdd.lastnamePlaceholder'   => 'Sobrenome',
+    'userAdd.password'              => 'Senha',
+    'userAdd.passwordPlaceholder'   => 'Digite a senha',
+    'userAdd.confirmPass'           => 'Confirmar senha',
+    'userAdd.confirmPassPlaceholder'=> 'Digite novamente a senha',
+    'userAdd.submit'                => 'Enviar',
+
+    //Users profile
+    'userProfile.settings'          => 'Configuração',
+    'userProfile.image'             => 'Imagem',
+    'userProfile.image.choose'      => 'Escolha a imagem...',
+    'userProfile.image.browse'      => 'Usuário',
+    'userProfile.name'              => 'Nome de usuário',
+    'userProfile.lastname'          => 'Sobrenome',
+    'userProfile.user'              => 'Nome',
+    'userProfile.lastname'          => 'Usuário',
+    'userProfile.email'             => 'E-mail',
+    'userProfile.newPassword'       => 'Nova senha',
+    'userProfile.newPasswordConfirm'=> 'Confirmar senha',
+    'userProfile.update'            => 'Atualizar',
+
+    //Groups list
+    'groups.registredGroups'        => 'Grupos cadastrados',
+    'groups.addGroup'               => 'Adicionar grupo',
+    'groups.group'                  => 'Grupo',
+    'groups.description'            => 'Descrição',
+    'groups.options'                => 'Opções',
+
+    //Groups add
+    'groupsAdd.addGroup'            => 'Adicionar grupo',
+    'groupsAdd.groupName'           => 'Grupo',
+    'groupsAdd.groupNamePh'         => 'Nome do grupo',
+    'groupsAdd.description'         => 'Descrição',
+    'groupsAdd.descriptionPh'       => 'Digite a descrição',
+    'groupsAdd.category'            => 'Categoria',
+    'groupsAdd.toAdd'               => 'Adicionar',
+    'groupsAdd.toList'              => 'Listar',
+    'groupsAdd.toEdit'              => 'Editar',
+    'groupsAdd.toDelete'            => 'Apagar',
+    'groupsAdd.toStatus'            => 'Status',
+    'groupsAdd.users'               => 'Usuários',
+    'groupsAdd.submit'              => 'Enviar',
+
+    //Groups add users
+    'groupsUsers.addUsers'          => 'Usuários cadastrados',
+    'groupsUsers.user'              => 'Usuário',
+    'groupsUsers.name'              => 'Nome',
+    'groupsUsers.lastname'          => 'Sobrenome',
+    'groupsUsers.email'             => 'E-mail',
+    'groupsUsers.add'               => 'Adicionar',
+    'groupsUsers.inGroup'           => 'NO GRUPO',
+    'groupsUsers.outGroup'          => 'FORA DO GRUPO',
+
+    //Groups edit
+    'groupsEdit.editGroup'          => 'Editar grupo',
+    'groupsEdit.groupName'          => 'Grupo',
+    'groupsEdit.groupNamePh'        => 'Nome do grupo',
+    'groupsEdit.description'        => 'Descrição',
+    'groupsEdit.descriptionPh'      => 'Digite a descrição',
+    'groupsEdit.category'           => 'Categoria',
+    'groupsEdit.toAdd'              => 'Adicionar',
+    'groupsEdit.toList'             => 'Listar',
+    'groupsEdit.toEdit'             => 'Editar',
+    'groupsEdit.toDelete'           => 'Apagar',
+    'groupsEdit.toStatus'           => 'Status',
+    'groupsEdit.users'              => 'Usuários',
+    'groupsEdit.submit'             => 'Enviar',
+    'groupsEdit.usersInGroup'       => 'Usuários no grupo',
+    'groupsEdit.addUser'            => 'Adicionar usuário no grupo',
+    'groupsEdit.user'               => 'Usuário',
+    'groupsEdit.name'               => 'Nome',
+    'groupsEdit.lastname'           => 'Sobrenome',
+    'groupsEdit.email'              => 'E-mail',
+    'groupsEdit.options'            => 'Opções',
+
+    //Alerts
+    'alerts.warning'                => 'Atenção',
+    'alerts.yes'                    => 'Sim',
+    'alerts.back'                   => 'Back',
+];

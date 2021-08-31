@@ -1,3 +1,5 @@
+##### v0.0.58
+- Finished logic for create new user in Controller/Api/V1/Users::create
 ##### v0.0.57
 - Edited config in file Auth.php
 - Disabled csrf filter in all api routes
