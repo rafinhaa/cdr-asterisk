@@ -44,7 +44,7 @@ class Users extends ResourceController
 			'status' => 200,
 			"error" => false,
 			'messages' => ['success' => 'Listed single user'],
-			'data' => $this->model->find($id),
+			'data' => $data,
 		];
         return $this->respond($response);
 	}
@@ -66,6 +66,14 @@ class Users extends ResourceController
 	 */
 	public function create(){
 		$rules = [
+			'email' => [
+				'rules' => 'required|valid_email|is_unique[users.email]',				
+				'errors' => [
+					'required' => 'O e-mail é necessário',
+					'valid_email' => 'Você deve inserir um email válido',
+					'is_unique' => 'Esse e-mail já está cadastrado',
+				],
+			],
 			'name' => [
 				'rules' => 'required|min_length[2]',
 				'errors' => [
@@ -100,7 +108,7 @@ class Users extends ResourceController
 			return $this->respond([
 				'status' => 500,
 				'error' => true,
-				'message' => [
+				'messages' => [
 					'error' => $this->validator->getErrors(),
 				],
 				'data' => []
@@ -108,9 +116,13 @@ class Users extends ResourceController
 		}
         
 		$allowedPostFields = array_merge(['password'], config('Auth')->validFields, config('Auth')->personalFields);
-		$data = (array) service('request')->getJSON();
-		$data = array_intersect_key($data, array_fill_keys($allowedPostFields, null));
-		$user = new \Myth\Auth\Entities\User($data);
+		if (strpos(service('request')->getHeaderLine('Content-Type'), 'application/json') !== false){
+			$data = (array) service('request')->getJSON();
+			$data = array_intersect_key($data, array_fill_keys($allowedPostFields, null));
+			$user = new \Myth\Auth\Entities\User($data);
+		} else {
+			$user = new \Myth\Auth\Entities\User($this->request->getPost($allowedPostFields));
+		}
 		$this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
 
 		$users = model(UserModel::class);
@@ -124,7 +136,7 @@ class Users extends ResourceController
 			return $this->respond([
 				'status' => 500,
 				'error' => true,
-				'message' => [
+				'messages' => [
 					'error' => $users->errors(),
 				],
 				'data' => []
@@ -141,7 +153,7 @@ class Users extends ResourceController
 				return $this->respond([
 					'status' => 500,
 					'error' => true,
-					'message' => [
+					'messages' => [
 						'error' => $activator->error() ?? lang('Auth.unknownError'),
 					],
 					'data' => []
@@ -151,7 +163,7 @@ class Users extends ResourceController
 			return $this->respond([
 				'status' => 201,
 				'error' => false,
-				'message' => [
+				'messages' => [
 					'success' => lang('Auth.activationSuccess'),
 				],
 				'data' => []
@@ -161,8 +173,8 @@ class Users extends ResourceController
 		return $this->respondCreated([
 			'status' => 201,
 			'error' => false,
-			'message' => [
-				'success' => 'Users added successfully',
+			'messages' => [
+				'success' => 'User added successfully',
 			],
 			'data' => []
 		]);
@@ -185,7 +197,84 @@ class Users extends ResourceController
 	 */
 	public function update($id = null)
 	{
-		//
+		if(!$this->model->find($id)){
+			return $this->failNotFound('User not found');
+		}
+
+		$rules = [
+			'email' => [
+				'rules' => 'permit_empty|valid_email|update_email['. $id .']',				
+				'errors' => [
+					'valid_email' => 'Você deve inserir um email válido',
+					'update_email' => 'Esse e-mail já está cadastrado',
+				],
+			],
+			'name' => [
+				'rules' => 'permit_empty|min_length[2]',
+				'errors' => [
+					'min_length' => 'Seu nome deve ter pelo menos 2 caracteres',
+				],
+			],
+			'lastname' => [
+				'rules' => 'permit_empty|min_length[2]',
+				'errors' => [
+					'min_length' => 'Seu sobrenome deve ter pelo menos 2 caracteres',
+				],
+			],
+			'password' => [
+				'rules' => 'permit_empty|strong_password',
+				'errors' => [
+					'strong_password' => 'Essa senha está facil demais',
+				],                
+			],			
+			'cpassword' => [
+				'rules' => 'permit_empty|matches[password]',
+				'errors' => [
+					'matches' => 'As senhas não são iguais',
+				],                
+			],
+		];
+
+		if (! $this->validate($rules)){
+			return $this->respond([
+				'status' => 500,
+				'error' => true,
+				'messages' => [
+					'error' => $this->validator->getErrors(),
+				],
+				'data' => []
+			],500);
+		}
+		$allowedPostFields = array_merge(['password'], config('Auth')->validFields, config('Auth')->personalFields);
+		$data = array_filter(service('request')->getPost($allowedPostFields));
+		if (empty($data)) {
+			//convert request body to associative array
+			$data = array_intersect_key(
+				json_decode(service('request')->getBody(), true), 
+				array_fill_keys($allowedPostFields, null)
+			);
+		};
+		$user = new \Myth\Auth\Entities\User($data);
+		$user->id = $id;
+		if (! $this->model->save($user))
+		{
+			return $this->respond([
+				'status' => 500,
+				'error' => true,
+				'messages' => [
+					'error' => $this->model->errors(),
+				],
+				'data' => []
+			],500);
+		}
+		return $this->respond([
+			'status' => 200,
+			'error' => false,
+			'messages' => [
+				'success' => 'User updated successfully',
+			],
+			'data' => []
+		],200);
 	}
 
 	/**
@@ -194,7 +283,27 @@ class Users extends ResourceController
 	 * @return mixed
 	 */
 	public function delete($id = null)
-	{
-		//
+	{			
+		if(!$this->model->find($id)){
+			return $this->failNotFound('User not found');
+		}
+		if ($this->model->delete($id)){
+			return $this->respondDeleted([
+				'status' => 200,
+				'error' => false,
+				'messages' => [
+					'success' => 'User deleted successful',
+				],
+				'data' => []
+			]);
+		}
+		return $this->respond([
+			'status' => 500,
+			'error' => true,
+			'messages' => [
+				'error' => 'User not deleted',
+			],
+			'data' => []
+		],500);
 	}
 }

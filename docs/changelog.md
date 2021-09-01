@@ -1,3 +1,9 @@
+##### v0.0.59
+- Created folder Validation in App folder
+- Created file UserUpdateRules in Validation folder
+- Created method UserUpdateRules in UserUpdateRules file
+- Added validation file in file Config/Validation.php
+- Finished method update in Controller Api/V1/UserController
 ##### v0.0.58
 - Finished logic for create new user in Controller/Api/V1/Users::create
 ##### v0.0.57
