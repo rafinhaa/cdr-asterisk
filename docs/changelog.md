@@ -1,7 +1,14 @@
+##### v0.0.60
+- Created Controller named Groups in Api folder
+- Created methods index, show, create, update, delete in Controller Groups
+- Created foçe GroupsUpdateRules in validation folder
+- Created method update_name in GroupUpdateRules file
+- Added validation file in file Config/Validation.php
+- Finished Controller Api/V1/Groups/Controller
 ##### v0.0.59
 - Created folder Validation in App folder
 - Created file UserUpdateRules in Validation folder
-- Created method UserUpdateRules in UserUpdateRules file
+- Created method update_email in UserUpdateRules file
 - Added validation file in file Config/Validation.php
 - Finished method update in Controller Api/V1/UserController
 ##### v0.0.58
