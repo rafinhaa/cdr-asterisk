@@ -1,3 +1,6 @@
+##### v0.0.61
+- Created Controller MythAuth in folder Api/v1/
+- Created Routers for methods login and logout
 ##### v0.0.60
 - Created Controller named Groups in Api folder
 - Created methods index, show, create, update, delete in Controller Groups

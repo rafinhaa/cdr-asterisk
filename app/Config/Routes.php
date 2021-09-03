@@ -34,6 +34,11 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->resource('api/v1/users');
 $routes->resource('api/v1/groups');
+//$routes->resource('api/v1/login',['only' => ['login', 'logout']]);
+
+$routes->post('api/v1/auth', 'Api\V1\MythAuth::login');
+$routes->get('api/v1/auth', 'Api\V1\MythAuth::logout');
+
 $routes->group('/', ['filter' => 'login'], function($routes){
 	/** Redirect attempts to Registration, Activation and Forgot/Resets */
 	$routes->match(['get', 'post'], 'register', 'CDR\Dashboard::index');
