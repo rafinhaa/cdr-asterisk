@@ -32,12 +32,18 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->resource('api/v1/users');
-$routes->resource('api/v1/groups');
-//$routes->resource('api/v1/login',['only' => ['login', 'logout']]);
-
-$routes->post('api/v1/auth', 'Api\V1\MythAuth::login');
-$routes->get('api/v1/auth', 'Api\V1\MythAuth::logout');
+/*
+$routes->group('milho', ['namespace' => 'App\Controllers\Api\Auth'], function($routes){ 
+		$routes->post('jwt', 'Jwt::login');			
+	});	
+*/
+$routes->post('api/auth/jwt', 'Api\Auth\Jwt::login');
+$routes->group('api', function($routes){		
+	$routes->group('v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes){
+		$routes->resource('users', ['except' => 'new,edit']);
+		$routes->resource('groups', ['except' => 'new,edit']);
+	});
+});
 
 $routes->group('/', ['filter' => 'login'], function($routes){
 	/** Redirect attempts to Registration, Activation and Forgot/Resets */

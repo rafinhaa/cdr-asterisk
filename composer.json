@@ -9,7 +9,8 @@
 	"require": {
 		"php": "^7.3||^8.0",
 		"codeigniter4/framework": "^4",
-		"myth/auth": "^1"
+		"myth/auth": "^1",
+		"firebase/php-jwt": "^5.4"
 	},
 	"require-dev": {
 		"fakerphp/faker": "^1.9",

@@ -1,3 +1,6 @@
+##### v0.0.62
+- Created folder api/auth
+- renamed MythAuth to Jwt
 ##### v0.0.61
 - Created Controller MythAuth in folder Api/v1/
 - Created Routers for methods login and logout

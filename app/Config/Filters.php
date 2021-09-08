@@ -16,12 +16,13 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     => CSRF::class,
-		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'csrf'     	 => CSRF::class,
+		'toolbar'  	 => DebugToolbar::class,
+		'honeypot' 	 => Honeypot::class,
 		'login'      => \Myth\Auth\Filters\LoginFilter::class,
     	'role'       => \Myth\Auth\Filters\RoleFilter::class,
     	'permission' => \Myth\Auth\Filters\PermissionFilter::class,
+    	'jwtauth'    => \App\Filters\JwtAuthenticationFilter::class,
 	];
 
 	/**
@@ -33,7 +34,7 @@ class Filters extends BaseConfig
 	public $globals = [
 		'before' => [
 			// 'honeypot',
-			'csrf' => ['except' => ['api/v1/*']]
+			'csrf' => ['except' => ['api/v1/*']],				
 		],
 		'after'  => [
 			'toolbar',
@@ -61,5 +62,9 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [						
+		'jwtauth' => [
+			'before' => ['api/v1/*'],
+		],
+	];
 }
