@@ -22,10 +22,8 @@ class Jwt extends ResourceController
         if (empty($data)) {
             $data = json_decode(service('request')->getBody(), true);
         }
-        print_r ($data);
         if (! $auth->attempt($data, false) ){
             return $this->failUnauthorized('Email or password is invalid');
         }
-        die('ok');
     }
 }

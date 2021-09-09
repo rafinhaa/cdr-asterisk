@@ -1,3 +1,5 @@
+##### v0.0.63
+- Fixed bugs
 ##### v0.0.62
 - Created folder api/auth
 - renamed MythAuth to Jwt

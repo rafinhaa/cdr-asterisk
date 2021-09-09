@@ -32,13 +32,10 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-/*
-$routes->group('milho', ['namespace' => 'App\Controllers\Api\Auth'], function($routes){ 
-		$routes->post('jwt', 'Jwt::login');			
-	});	
-*/
-$routes->post('api/auth/jwt', 'Api\Auth\Jwt::login');
 $routes->group('api', function($routes){		
+	$routes->group('auth', ['namespace' => 'App\Controllers\Api\Auth'], function($routes){
+		$routes->post('jwt', 'Jwt::login');
+	});
 	$routes->group('v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes){
 		$routes->resource('users', ['except' => 'new,edit']);
 		$routes->resource('groups', ['except' => 'new,edit']);
