@@ -1,3 +1,8 @@
+##### v0.0.64
+- Finalized logic to generate JWT tokens for users.
+- FInalized logic to generate refreshTokens for users.
+- Create route for renew token.
+- New environment variable to set the refresh token expiry time.
 ##### v0.0.63
 - Fixed bugs
 ##### v0.0.62

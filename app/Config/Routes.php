@@ -35,6 +35,7 @@ $routes->setAutoRoute(false);
 $routes->group('api', function($routes){		
 	$routes->group('auth', ['namespace' => 'App\Controllers\Api\Auth'], function($routes){
 		$routes->post('jwt', 'Jwt::login');
+		$routes->post('refreshToken', 'Jwt::refreshToken');
 	});
 	$routes->group('v1', ['namespace' => 'App\Controllers\Api\V1'], function($routes){
 		$routes->resource('users', ['except' => 'new,edit']);

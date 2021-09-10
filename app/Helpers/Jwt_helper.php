@@ -15,8 +15,6 @@ function getJWTFromRequest($authenticationHeader): string {
 function validateJWTFromRequest(string $encodedToken){
     $key = getenv('jwt.secret.key');
     $decodedToken = JWT::decode($encodedToken, $key, ['HS256']);
-    $userModel = new UserModel();
-    $userModel->findUserByEmailAddress($decodedToken->email);
 }
 
 function getSignedJWTForUser(string $email){
@@ -31,4 +29,24 @@ function getSignedJWTForUser(string $email){
 
     $jwt = JWT::encode($payload, getenv('jwt.secret.key'));
     return $jwt;
+}
+
+function getRefreshTokenForUser(string $email){    
+    $encodedEmail = base64_encode($email);
+    $refreshToken = md5(uniqid(rand(), true));
+    $refreshTokenTimeToLive = getenv('refreshToken.time.to.live');
+    cache()->save($encodedEmail, $refreshToken, $refreshTokenTimeToLive);
+    return $refreshToken;
+}
+
+function validateRefreshTokenForUser(string $email, string $refreshToken){
+    $encodedEmail = base64_encode($email);
+    if (! cache()->get($encodedEmail) || cache()->get($encodedEmail) !== $refreshToken) {        
+        throw new Exception('Missing or invalid refreshToken');
+    }
+    cache()->delete($encodedEmail);
+    return [
+        'refreshToken' => getRefreshTokenForUser($email), 
+        'token' => getSignedJWTForUser($email)
+    ];
 }
