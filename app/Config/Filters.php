@@ -23,6 +23,7 @@ class Filters extends BaseConfig
     	'role'       => \Myth\Auth\Filters\RoleFilter::class,
     	'permission' => \Myth\Auth\Filters\PermissionFilter::class,
     	'jwtauth'    => \App\Filters\JwtAuthenticationFilter::class,
+    	'jwtexpired'    => \App\Filters\JwtExpiredToken::class,
 	];
 
 	/**
@@ -65,6 +66,9 @@ class Filters extends BaseConfig
 	public $filters = [						
 		'jwtauth' => [
 			'before' => ['api/v1/*'],
+		],
+		'jwtexpired' => [
+			'before' => ['api/auth/refreshToken'],
 		],
 	];
 }

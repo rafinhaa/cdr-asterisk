@@ -1,3 +1,5 @@
+##### v0.0.65
+- Implemented logic to accept only invalid request for to get new refresh token.
 ##### v0.0.64
 - Finalized logic to generate JWT tokens for users.
 - FInalized logic to generate refreshTokens for users.
